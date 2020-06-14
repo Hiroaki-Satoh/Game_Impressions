@@ -10,6 +10,39 @@
   </head>
 
   <body>
+    <!-- ヘッダーの記述 -->
+    <header>
+      <nav>
+        <span>Game Impressions</span>
+      </nav>
+
+      <nav>
+        <ul>
+          <!-- 管理者 -->
+          <!-- if admin_signed_in? -->
+          <!-- ------ -->
+          <!-- ログインユーザ -->
+          <!-- elseif user_signed_in? -->
+          <!-- ---------- -->
+          <!-- ゲストユーザ -->
+          <!-- elseif -->
+          <li><%= link_to 'about', homes_about_path %></li>
+          <li><%= '新規登録' %></li>
+          <li><%= 'ログイン' %></li>
+          <!-- -------- -->
+        </ul>
+      </nav>
+    </header>
+    <!-- ヘッダーの記述 ここまで -->
+
     <%= yield %>
+
+    <!-- フッターの記述 -->
+    <footer>
+      <div>
+        <p>～すばらしいゲーム体験を共有しよう～</p>
+      </div>
+    </footer>
+    <!-- フッターの記述 ここまで -->
   </body>
 </html>
