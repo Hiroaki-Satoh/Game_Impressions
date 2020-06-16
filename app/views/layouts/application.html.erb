@@ -12,25 +12,46 @@
   <body>
     <!-- ヘッダーの記述 -->
     <header>
-      <nav>
-        <span>Game Impressions</span>
-      </nav>
+      <nav class = "navbar navbar-expand navbar-dark bg-dark ">
+        <%= link_to 'Game Impressions', root_path, class: "navbar-brand" %>
+          <% if user_signed_in? %>
+            <span class = "navbar-text">
+              ようこそ、<%= current_user.nickname %>さん
+            </span>
+          <% else %>
+            <span class = "navbar-text">
+              ようこそ、ゲストさん
+            </span>
+          <% end %>
 
-      <nav>
-        <ul>
+        <ul class = "navbar-nav ml-auto">
           <!-- 管理者 -->
           <!-- if admin_signed_in? -->
           <!-- ------ -->
           <!-- ログインユーザ -->
-          <!-- elseif user_signed_in? -->
+          <% if user_signed_in? %>
+           <li class = "nav-item">
+              <%= link_to 'about', homes_about_path, class: "nav-link" %>
+            </li>
+            <li class = "nav-item">
+              <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "nav-link" %>
+            </li>
           <!-- ---------- -->
           <!-- ゲストユーザ -->
-          <!-- elseif -->
-          <li><%= link_to 'about', homes_about_path %></li>
-          <li><%= '新規登録' %></li>
-          <li><%= 'ログイン' %></li>
+          <% else %>
+            <li class = "nav-item">
+              <%= link_to 'about', homes_about_path, class: "nav-link" %>
+            </li>
+            <li class = "nav-item">
+              <%= link_to '新規登録', new_user_registration_path, class: "nav-link" %>
+            </li>
+            <li class = "nav-item">
+              <%= link_to 'ログイン', new_user_session_path, class: "nav-link" %>
+            </li>
+            <% end %>
           <!-- -------- -->
         </ul>
+
       </nav>
     </header>
     <!-- ヘッダーの記述 ここまで -->
