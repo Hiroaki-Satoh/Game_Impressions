@@ -67,3 +67,13 @@ gem 'devise'
 # bootstrap ver4
 gem 'bootstrap', '~> 4.5.0'
 gem 'jquery-rails'
+
+# paginatiom
+gem 'kaminari','~> 1.1.1'
+
+# refile refile-mini_magick
+gem "refile", require: "refile/rails", github: 'manfe/refile'
+gem "refile-mini_magick"
+
+# debug
+gem 'pry-byebug'
