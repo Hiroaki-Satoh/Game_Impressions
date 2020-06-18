@@ -9,34 +9,46 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
+  <body style = "padding-top:4.5rem; padding-bottom:4.5rem;">
     <!-- ヘッダーの記述 -->
     <header>
-      <nav class = "navbar navbar-expand navbar-dark bg-dark ">
+      <!-- 最上部に固定されたナビゲーションバーの設定 -->
+      <nav class = "navbar navbar-expand navbar-dark bg-dark fixed-top justify-content-between">
         <%= link_to 'Game Impressions', root_path, class: "navbar-brand" %>
-          <% if user_signed_in? %>
+          <!-- 管理者 -->
+          <% if admin_signed_in? %>
+            <span class = "navbar-text">
+              ようこそ、【管理者】<%= current_admin.nickname %>さん
+            </span>
+          <!-- ログインユーザ -->
+          <% elsif user_signed_in? %>
             <span class = "navbar-text">
               ようこそ、<%= current_user.nickname %>さん
             </span>
+          <!-- ゲストユーザ -->
           <% else %>
             <span class = "navbar-text">
               ようこそ、ゲストさん
             </span>
           <% end %>
 
-        <ul class = "navbar-nav ml-auto">
+        <ul class = "navbar-nav">
           <!-- 管理者 -->
-          <!-- if admin_signed_in? -->
-          <!-- ------ -->
+          <% if admin_signed_in? %>
+            <li class = "nav-item">
+              <%= link_to 'about', homes_about_path, class: "nav-link" %>
+            </li>
+            <li class = "nav-item">
+              <%= link_to 'ログアウト', destroy_admin_session_path, method: :delete, class: "nav-link" %>
+            </li>
           <!-- ログインユーザ -->
-          <% if user_signed_in? %>
+          <% elsif user_signed_in? %>
            <li class = "nav-item">
               <%= link_to 'about', homes_about_path, class: "nav-link" %>
             </li>
             <li class = "nav-item">
               <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "nav-link" %>
             </li>
-          <!-- ---------- -->
           <!-- ゲストユーザ -->
           <% else %>
             <li class = "nav-item">
@@ -48,21 +60,21 @@
             <li class = "nav-item">
               <%= link_to 'ログイン', new_user_session_path, class: "nav-link" %>
             </li>
-            <% end %>
+          <% end %>
           <!-- -------- -->
         </ul>
-
       </nav>
     </header>
     <!-- ヘッダーの記述 ここまで -->
 
-    <%= yield %>
+      <%= yield %>
 
     <!-- フッターの記述 -->
     <footer>
-      <div>
-        <p>～すばらしいゲーム体験を共有しよう～</p>
-      </div>
+      <!-- 最下部に固定されたナビゲーションバーの設定 -->
+      <nav class = "navbar navbar-expand navbar-dark bg-dark fixed-bottom justify-content-center">
+          <span class = "navbar-text ">～すばらしいゲーム体験を共有しよう～</span>
+      </nav>
     </footer>
     <!-- フッターの記述 ここまで -->
   </body>
