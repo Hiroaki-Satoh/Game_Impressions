@@ -14,7 +14,11 @@
     <header>
       <!-- 最上部に固定されたナビゲーションバーの設定 -->
       <nav class = "navbar navbar-expand navbar-dark bg-dark fixed-top justify-content-between">
-        <%= link_to 'Game Impressions', root_path, class: "navbar-brand" %>
+        <% if admin_signed_in? %>
+          <%= link_to 'Game Impressions', admin_top_path, class: "navbar-brand" %>
+        <% else %>
+          <%= link_to 'Game Impressions', root_path, class: "navbar-brand" %>
+        <% end %>
           <!-- 管理者 -->
           <% if admin_signed_in? %>
             <span class = "navbar-text">

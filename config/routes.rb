@@ -20,6 +20,7 @@ Rails.application.routes.draw do
   # 管理者に関するルーティング設定
   namespace :admin do
   	get 'top' => 'homes#top'
+  	resources :genres, only: [:index, :show, :create, :update, :edit]
   end
 
   # ユーザに関するルーティング設定
