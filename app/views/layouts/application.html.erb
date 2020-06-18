@@ -9,10 +9,11 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
+  <body style = "padding-top:4.5rem; padding-bottom:4.5rem;">
     <!-- ヘッダーの記述 -->
     <header>
-      <nav class = "navbar navbar-expand navbar-dark bg-dark ">
+      <!-- 最上部に固定されたナビゲーションバーの設定 -->
+      <nav class = "navbar navbar-expand navbar-dark bg-dark fixed-top justify-content-between">
         <%= link_to 'Game Impressions', root_path, class: "navbar-brand" %>
           <!-- 管理者 -->
           <% if admin_signed_in? %>
@@ -31,7 +32,7 @@
             </span>
           <% end %>
 
-        <ul class = "navbar-nav ml-auto">
+        <ul class = "navbar-nav">
           <!-- 管理者 -->
           <% if admin_signed_in? %>
             <li class = "nav-item">
@@ -70,11 +71,10 @@
 
     <!-- フッターの記述 -->
     <footer>
-      <div class = "container">
-        <div class = "row">
-          <p>～すばらしいゲーム体験を共有しよう～</p>
-        </div>
-      </div>
+      <!-- 最下部に固定されたナビゲーションバーの設定 -->
+      <nav class = "navbar navbar-expand navbar-dark bg-dark fixed-bottom justify-content-center">
+          <span class = "navbar-text ">～すばらしいゲーム体験を共有しよう～</span>
+      </nav>
     </footer>
     <!-- フッターの記述 ここまで -->
   </body>

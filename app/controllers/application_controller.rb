@@ -5,7 +5,11 @@ class ApplicationController < ActionController::Base
   protected
   # ログイン（sign_in）後の画面遷移先の変更
   def after_sign_in_path_for(resource)
-    root_path # とりあえずトップ画面へ
+    if admin_signed_in?
+      admin_top_path # 管理者用トップページへ
+    else
+      root_path # とりあえずトップ画面へ
+    end
   end
 
   # ユーザ登録（sign_up）後の画面遷移先の変更
