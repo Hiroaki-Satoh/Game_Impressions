@@ -1,6 +1,5 @@
 class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
-  before_action :authenticate_user!,{ except: [:top, :about] }
 
   protected
   # ログイン（sign_in）後の画面遷移先の変更
