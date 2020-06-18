@@ -9,10 +9,12 @@
         </div>
         <div class = "field">
           <h4>状態の切り替え</h4>
+          <!-- ラジオボタンで有効・無効を切り替える -->
           <%= f.radio_button :is_valid, true %>
           <%= f.label :is_valid, "有効", {value: :true, style: "display: inline-block;"} %>&emsp;
           <%= f.radio_button :is_valid, false %>
           <%= f.label :is_valid, "無効", {value: :false, style: "display: inline-block;"} %>
+          <!-- --------------------------- -->
         </div>
           <%= f.submit "変更を保存する", class: "btn btn-info" %>
       <% end %>
