@@ -1,0 +1,76 @@
+<div class = "container">
+  <!-- ゲームタイトルの一覧表示 -->
+  <h1>ジャンル一覧</h1>
+  <div class = "row">
+  	<div class = "col col-xs-12">
+      <div class = "table-responsive">
+  	  	<table class = "table thead-light table-striped table-bordered text-nowrap">
+  	  	  <thread>
+  	  	  	<tr>
+  	  	  	  <th>ゲームタイトルID</th>
+  	  	  	  <th>ゲーム画像</th>
+  	  	  	  <th>ゲームタイトル名</th>
+  	  	  	  <th>ジャンル</th>
+  	  	  	  <th></th>
+  	  	    </tr>
+  	  	  </thread>
+  	  	  <tbody>
+  	  	    <% @game_titles.each do |game_title| %>
+  	  	      <tr>
+  	  	      	<td><%= game_title.id %></td>
+  	  	      	<td>
+  	  	      	  <%= attachment_image_tag(game_title, :game_image, :size => "40x40"
+  	  	      	  format: 'jpeg', class: "img-rounded", fallback: "no_image.jpg",size:"40x40" %>
+  	  	      	</td>
+  	  	        <td><%= game_title.name %></td>
+  	  	        <% if @game_title.genre.is_valid == true %>
+  	  	          <td><%= game_title.genre.name %></td>
+  	  	        <% elsif genre.is_valid == false %>
+  	  	      	  <td>無効</td>
+  	  	        <% end %>
+  	  	      	<td>
+  	  	      	  <%= link_to '詳細', edit_admin_game_title_path(genre), class: "btn btn-primary" %>&emsp;
+  	  	      	  <%= link_to '編集', edit_admin_game_title_path(genre), class: "btn btn-success" %>
+  	  	      	 </td>
+  	  	      </tr>
+  	  	    <% end %>
+  	  	  </tbody>
+  	    </table>
+  	  </div>
+    </div>
+  </div>
+  <!-- ゲームタイトルの一覧表示 ここまで -->
+
+  <!-- 新規作成フォーム -->
+  <h2>ゲームタイトルの追加</h2>
+  <div class = "row">
+  	<!-- form_with(model: @game_title, local: true, url:{action: 'create'}) do |f| -->
+  	<!-- 渡されたモデルの中身が空の場合 => createメソッドを呼び出す。 -->
+  	<!-- 渡されたモデルの中身がある場合 => updateメソッドを呼び出す。 -->
+  	<% form_with model: @game_title do |f| %>
+  	  <div class = "form-group">
+  	  	<label>ゲーム画像</label>
+  	  	<%= f.attachment_field :game_image, class: "image" %>
+  	  </div>
+  	  <div class = "form-group">
+  	  	<label>ゲームタイトル</label>
+  	  	<%= f.text_field :name, placeholder: "ゲームタイトル", class: "form-controll" %>
+  	  </div>
+  	  <div class = "form-group">
+  	  	<label>ジャンル</label>
+  	    <%= f.collection_select :genre_id, @genres, :id, :name, include_blank: "--- 選択して下さい ---" %>
+  	  </div>
+  	  <div class = "form-group">
+  	  	<label>ゲーム紹介文</label>
+  	  	<%= f.text_area :name, placeholder: "ゲーム紹介文", class: "form-controll" %>
+  	  </div>
+  	  <%= f.submit "追加", class: "btn btn-info" %>
+  	  <% end %>
+  </div>
+  <!-- 新規作成フォーム ここまで -->
+</div>
+<div class = "button">
+  <div style = "text-align: center">
+    <%= link_to '管理者トップに戻る', admin_top_path, class: "btn btn-sm btn-primary" %>
+  </div>
+</div>
