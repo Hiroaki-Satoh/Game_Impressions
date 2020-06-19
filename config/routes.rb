@@ -21,7 +21,7 @@ Rails.application.routes.draw do
   namespace :admin do
   	get 'top' => 'homes#top'
   	resources :genres,      only: [:index, :show, :create, :update, :edit]
-  	resources :game_titles, only: [:index, :show, :creste, :update, :edit]
+  	resources :game_titles, only: [:index, :show, :create, :update, :edit]
   end
 
   # ユーザに関するルーティング設定 /user/xxxx
