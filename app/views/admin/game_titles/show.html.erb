@@ -1,0 +1,21 @@
+<div class = "container">
+  <h1>ゲームタイトル 詳細ページ</h1>
+  <div class = "row">
+  	<div class = "col col-xs-3">
+  	  <%= attachment_image_tag(@game_title, :game_image, :size => "320x240",
+  	  format: 'jpeg', class: "img-rounded", fallback: "no_image.jpg", size:"320x240") %>
+  	</div>
+  	<div class = "col col-xs-9">
+  	  <p>ゲームタイトル名<br><%= @game_title.name %></p>
+  	  <p>ジャンル<br><%= @game_title.genre.name %></p>
+  	  <p>ゲーム紹介文<br><%= @game_title.introduction %></p>
+  	</div>
+  </div>
+</div>
+
+<div class = "button">
+  <div style = "text-align: center">
+  	<%= link_to '編集する', edit_admin_game_title_path(@game_title), class: "btn btn-success" %>&emsp;
+    <%= link_to 'ゲームタイトル一覧へ戻る', admin_game_title_path, class: "btn btn btn-primary" %>
+  </div>
+</div>
