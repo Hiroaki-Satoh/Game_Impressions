@@ -4,7 +4,7 @@ class Admin::GameTitlesController < ApplicationController
   def index
   	@game_title = GameTitle.new
   	# 降順で1ページにつき10個表示させる。
-  	@game_titles = GameTitle.all.game_title("id DESC").page(params[:page]).per(10)
+  	@game_titles = GameTitle.all.page(params[:page]).per(10)
   end
 
   def show
@@ -16,6 +16,7 @@ class Admin::GameTitlesController < ApplicationController
   	if @game_title.save
   	  redirect_to admin_game_title_path(@game_title.id) # 作成したゲームタイトル詳細ページへ
   	else
+  	  @game_titles = GameTitle.all.page(params[:page]).per(10)
   	  render :index # 新規作成&一覧ページへ
   	end
   end
@@ -34,7 +35,7 @@ class Admin::GameTitlesController < ApplicationController
   end
 
   private
-  def geme_title_params
+  def game_title_params
   	params.require(:game_title).permit(:genre_id, :name, :game_image, :introduction)
   end
 end
