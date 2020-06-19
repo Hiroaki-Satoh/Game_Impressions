@@ -1,6 +1,6 @@
 <div class = "container">
   <!-- ゲームタイトルの一覧表示 -->
-  <h1>ジャンル一覧</h1>
+  <h1>ゲームタイトル一覧</h1>
   <div class = "row">
   	<div class = "col col-xs-12">
       <div class = "table-responsive">
@@ -19,8 +19,8 @@
   	  	      <tr>
   	  	      	<td><%= game_title.id %></td>
   	  	      	<td>
-  	  	      	  <%= attachment_image_tag(game_title, :game_image, :size => "40x40"
-  	  	      	  format: 'jpeg', class: "img-rounded", fallback: "no_image.jpg",size:"40x40" %>
+  	  	      	  <%= attachment_image_tag(game_title, :game_image, :size => "40x40",
+  	  	      	  format: 'jpeg', class: "img-rounded", fallback: "no_image.jpg",size:"40x40") %>
   	  	      	</td>
   	  	        <td><%= game_title.name %></td>
   	  	        <% if @game_title.genre.is_valid == true %>
@@ -29,8 +29,8 @@
   	  	      	  <td>無効</td>
   	  	        <% end %>
   	  	      	<td>
-  	  	      	  <%= link_to '詳細', edit_admin_game_title_path(genre), class: "btn btn-primary" %>&emsp;
-  	  	      	  <%= link_to '編集', edit_admin_game_title_path(genre), class: "btn btn-success" %>
+  	  	      	  <%= link_to '詳細', edit_admin_game_title_path(game_title), class: "btn btn-primary" %>&emsp;
+  	  	      	  <%= link_to '編集', edit_admin_game_title_path(game_title), class: "btn btn-success" %>
   	  	      	 </td>
   	  	      </tr>
   	  	    <% end %>
@@ -44,28 +44,27 @@
   <!-- 新規作成フォーム -->
   <h2>ゲームタイトルの追加</h2>
   <div class = "row">
-  	<!-- form_with(model: @game_title, local: true, url:{action: 'create'}) do |f| -->
-  	<!-- 渡されたモデルの中身が空の場合 => createメソッドを呼び出す。 -->
-  	<!-- 渡されたモデルの中身がある場合 => updateメソッドを呼び出す。 -->
-  	<% form_with model: @game_title do |f| %>
-  	  <div class = "form-group">
-  	  	<label>ゲーム画像</label>
-  	  	<%= f.attachment_field :game_image, class: "image" %>
-  	  </div>
-  	  <div class = "form-group">
-  	  	<label>ゲームタイトル</label>
-  	  	<%= f.text_field :name, placeholder: "ゲームタイトル", class: "form-controll" %>
-  	  </div>
-  	  <div class = "form-group">
-  	  	<label>ジャンル</label>
-  	    <%= f.collection_select :genre_id, @genres, :id, :name, include_blank: "--- 選択して下さい ---" %>
-  	  </div>
-  	  <div class = "form-group">
-  	  	<label>ゲーム紹介文</label>
-  	  	<%= f.text_area :name, placeholder: "ゲーム紹介文", class: "form-controll" %>
-  	  </div>
-  	  <%= f.submit "追加", class: "btn btn-info" %>
-  	  <% end %>
+  	<div class = "col col-xs-12">
+  	  <%= form_with(model: @game_title, url:{action: 'create'}) do |f| %>
+  	    <div class = "form-group">
+  	  	  <%= f.label :ゲーム画像 %><br>
+  	  	  <%= f.attachment_field :game_image, class: "form-controll-file" %>
+  	    </div>
+  	    <div class = "form-group">
+  	  	  <%= f.label :ゲームタイトル %><br>
+  	  	  <%= f.text_field :name, placeholder: "ゲームタイトル", class: "form-controll w-50" %>
+  	    </div>
+  	    <div class = "form-group">
+  	  	  <%= f.label :ジャンル %><br>
+  	      <%= f.collection_select :genre_id, Genre.where(is_valid: true), :id, :name, include_blank: "--- 選択して下さい ---" %>
+  	    </div>
+  	    <div class = "form-group">
+  	  	  <%= f.label :ゲーム紹介文 %><br>
+  	  	  <%= f.text_area :introduction, size: "x10", placeholder: "ゲーム紹介文", class: "form-controll w-50" %>
+  	    </div>
+  	    <%= f.submit "追加", class: "btn btn-info" %>
+  	    <% end %>
+    </div>
   </div>
   <!-- 新規作成フォーム ここまで -->
 </div>
