@@ -4,7 +4,8 @@ class Admin::GameTitlesController < ApplicationController
   def index
   	@game_title = GameTitle.new
   	# 降順で1ページにつき10個表示させる。
-  	@game_titles = GameTitle.all.page(params[:page]).per(10)
+  	# 降順 order("カラム名 DESC"), 昇順 order("カラム名 ABC")
+  	@game_titles = GameTitle.all.order("id DESC").page(params[:page]).per(10)
   end
 
   def show
