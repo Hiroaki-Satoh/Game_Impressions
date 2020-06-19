@@ -7,7 +7,6 @@
   	  	<table class = "table thead-light table-striped table-bordered text-nowrap">
   	  	  <thread>
   	  	  	<tr>
-  	  	  	  <th>ゲームタイトルID</th>
   	  	  	  <th>ゲーム画像</th>
   	  	  	  <th>ゲームタイトル名</th>
   	  	  	  <th>ジャンル</th>
@@ -17,19 +16,18 @@
   	  	  <tbody>
   	  	    <% @game_titles.each do |game_title| %>
   	  	      <tr>
-  	  	      	<td><%= game_title.id %></td>
   	  	      	<td>
   	  	      	  <%= attachment_image_tag(game_title, :game_image, :size => "40x40",
   	  	      	  format: 'jpeg', class: "img-rounded", fallback: "no_image.jpg",size:"40x40") %>
   	  	      	</td>
   	  	        <td><%= game_title.name %></td>
-  	  	        <% if @game_title.genre.is_valid == true %>
+  	  	        <% if game_title.genre.is_valid == true %>
   	  	          <td><%= game_title.genre.name %></td>
   	  	        <% elsif genre.is_valid == false %>
   	  	      	  <td>無効</td>
   	  	        <% end %>
   	  	      	<td>
-  	  	      	  <%= link_to '詳細', edit_admin_game_title_path(game_title), class: "btn btn-primary" %>&emsp;
+  	  	      	  <%= link_to '詳細', admin_game_title_path(game_title), class: "btn btn-primary" %>&emsp;
   	  	      	  <%= link_to '編集', edit_admin_game_title_path(game_title), class: "btn btn-success" %>
   	  	      	 </td>
   	  	      </tr>
