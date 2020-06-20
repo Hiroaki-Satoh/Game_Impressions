@@ -26,4 +26,7 @@ Rails.application.routes.draw do
   end
 
   # ユーザに関するルーティング設定 /user/xxxx
+  namespace :user do
+  	resources :users, only:[:index, :show, :update, :edit]
+  end
 end
