@@ -10,15 +10,15 @@
           <br>
           <%= f.attachment_field :icon_image, class: "form-controll-file" %>
         </div>
-        <div class = "field">
-          <%= f.label :ニックネーム %>
-          <%= f.text_field :nickname %>
+        <div class = "form-group">
+          <%= f.label :ニックネーム %><br>
+          <%= f.text_field :nickname, class: "form-controll w-50" %>
         </div>
-        <div class = "field">
-          <%= f.label :Eメールアドレス %>
-          <%= f.email_field :email %>
+        <div class = "form-group">
+          <%= f.label :Eメールアドレス %><br>
+          <%= f.email_field :email, class: "form-controll w-50" %>
         </div>
-        <div class = "field">
+        <div class = "form-group">
           <h4>状態の切り替え</h4>
           <!-- ラジオボタンで有効・無効を切り替える -->
           <%= f.radio_button :is_valid, true %>
