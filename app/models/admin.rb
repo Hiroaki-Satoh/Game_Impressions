@@ -1,8 +1,7 @@
 class Admin < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
-  # :registerable => 登録、編集、削除機能
-  devise :database_authenticatable,
+  devise :database_authenticatable, # :registerable,
          :recoverable, :rememberable, :validatable
 
   # バリデーション
