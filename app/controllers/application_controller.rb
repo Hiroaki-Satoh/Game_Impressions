@@ -7,13 +7,13 @@ class ApplicationController < ActionController::Base
     if admin_signed_in?
       admin_top_path # 管理者用トップページへ
     else
-      root_path # とりあえずトップ画面へ
+      user_user_path(current_user.id) # マイページ画面へ
     end
   end
 
   # ユーザ登録（sign_up）後の画面遷移先の変更
   def after_sign_up_path_for(resource)
-    root_path # とりあえずトップ画面へ
+    user_user_path(current_user.id) # マイページ画面へ
   end
 
   # ログアウト（sign_out）後の画面遷移先の変更
