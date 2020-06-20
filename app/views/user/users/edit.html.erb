@@ -12,7 +12,7 @@
         </div>
         <div class = "form-group">
           <%= f.label :ニックネーム %><br>
-          <%= f.text_field :nickname, placeholder: "4文字以上20文字以下",　class: "form-controll w-50" %> 
+          <%= f.text_field :nickname, placeholder: "4文字以上20文字以下",　class: "form-controll w-50" %>
           Lv.<%= @user.level %>
         </div>
         <div class = "form-group">
@@ -33,6 +33,6 @@
 
 <div class = "button">
   <div style = "text-align: center">
-    <%= link_to 'マイページに戻る', user_users_path(@user), class: "btn btn-sm btn-primary" %>
+    <%= link_to 'マイページに戻る', user_user_path(@user), class: "btn btn-sm btn-primary" %>
   </div>
 </div>
