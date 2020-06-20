@@ -25,9 +25,11 @@
   	  </tbody>
   	</table>
 
-    <div class = "button">
-      <div style = "text-align: center">
-  	    <%= link_to 'プロフィール編集', edit_user_user_path(current_user), class: "col-xs-12 btn btn-primary" %>
+    <% if user == current_user %>
+      <div class = "button">
+        <div style = "text-align: center">
+  	      <%= link_to 'プロフィール編集', edit_user_user_path(current_user), class: "col-xs-12 btn btn-primary" %>
+  	    </div>
   	  </div>
-  	</div>
+  	<% end %>
 </div>
