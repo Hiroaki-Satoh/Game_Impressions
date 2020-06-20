@@ -21,6 +21,7 @@ class Admin::UsersController < ApplicationController
   		redirect_to admin_users_path # 一覧ページへ
   	else
   		render :edit # 編集ページへ
+  	end
   end
 
   private
