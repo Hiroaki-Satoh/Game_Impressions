@@ -1,7 +1,7 @@
 <div class = "container">
   <h2>プロフィールの編集</h2>
-  <div class = "row">
-  	<div class = "col col-xs-12">
+  <div class = "row ">
+  	<div class = "col col-12">
       <%= form_with(model: @user, local: true, url:{action: 'update'}) do |f| %>
         <div class = "form-group">
           <%= f.label :ユーザアイコン %><br>
@@ -12,12 +12,11 @@
         </div>
         <div class = "form-group">
           <%= f.label :ニックネーム %><br>
-          <%= f.text_field :nickname, placeholder: "4文字以上20文字以下",　class: "form-controll w-50" %>
-          Lv.<%= @user.level %>
+          <%= f.text_field :nickname, placeholder: "4文字以上20文字以下", class: "form-controll w-50" %>
         </div>
         <div class = "form-group">
           <%= f.label :Eメールアドレス %><br>
-          <%= f.email_field :email, class: "form-controll w-50" %>
+          <%= f.email_field :email, placeholder: "email@example", class: "form-controll w-50" %>
         </div>
 
         <div class = "form-group">
