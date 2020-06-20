@@ -3,7 +3,7 @@ class Admin::UsersController < ApplicationController
 
   def index
   	# 降順で1ページにつき10個表示する
-  	@users = User.all.order.("id DESC").page(params[:page]).per(10)
+  	@users = User.all.order("id DESC").page(params[:page]).per(10)
   end
 
   def show
