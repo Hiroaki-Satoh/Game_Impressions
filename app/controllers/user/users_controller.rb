@@ -26,6 +26,7 @@ class User::UsersController < ApplicationController
   		redirect_to user_path(current_user)
   	else
   		render :edit # 編集ページへ
+    end
   end
 
   private
