@@ -16,7 +16,7 @@
   	  	    <% @users.each do |user| %>
   	  	      <tr>
                 <!-- ニックネーム クリックでユーザ詳細ページへ -->
-  	  	        <td><%= link_to 'user.nickname', admin_user_path(user), class: "btn-link" %></td>
+  	  	        <td><%= link_to user.nickname, admin_user_path(user), class: "btn-link" %></td>
                 <!-- Eメールアドレス -->
                 <td><%= user.email %></td>
                 <!-- ユーザアカウントの状態表示 -->
