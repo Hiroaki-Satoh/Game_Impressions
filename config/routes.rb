@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
-  root 'homes#top'
-  get 'homes/about'
+  root 'homes#top'  # サイトトップページの表示
+  get 'homes/about' # アバウトページの表示
 
   # devise:admins
   devise_for :admins, controllers: {
@@ -19,10 +19,14 @@ Rails.application.routes.draw do
 
   # 管理者に関するルーティング設定 /admin/xxxx
   namespace :admin do
-  	get 'top' => 'homes#top'
+  	get 'top' => 'homes#top' # 管理者トップページの表示
   	resources :genres,      only: [:index, :show, :create, :update, :edit]
   	resources :game_titles, only: [:index, :show, :create, :update, :edit]
+  	resources :users,       only: [:index, :show, :update, :edit]
   end
 
   # ユーザに関するルーティング設定 /user/xxxx
+  namespace :user do
+  	resources :users, only:[:index, :show, :update, :edit]
+  end
 end

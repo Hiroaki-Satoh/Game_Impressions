@@ -1,0 +1,38 @@
+<div class = "container">
+  <h2>プロフィールの編集</h2>
+  <div class = "row">
+  	<div class = "col col-xs-12">
+      <%= form_with(model: @user, local: true, url:{action: 'update'}) do |f| %>
+        <div class = "form-group">
+          <%= f.label :ユーザアイコン %><br>
+          <%= attachment_image_tag(@user, :icon_image, :size => "100x100",
+          format: 'jpeg', class: "img-rounded", fallback: "no_image.jpg", size:"100x100") %>
+          <br>
+          <%= f.attachment_field :icon_image, class: "form-controll-file" %>
+        </div>
+        <div class = "form-group">
+          <%= f.label :ニックネーム %><br>
+          <%= f.text_field :nickname, placeholder: "4文字以上20文字以下",　class: "form-controll w-50" %> 
+          Lv.<%= @user.level %>
+        </div>
+        <div class = "form-group">
+          <%= f.label :Eメールアドレス %><br>
+          <%= f.email_field :email, class: "form-controll w-50" %>
+        </div>
+
+        <div class = "form-group">
+          <%= f.label :introduction %><br>
+          <%= f.text_area :introduction, size: "x10", placeholder: "50文字まで入力可能", class: "form-controll w-50" %>
+        </div>
+
+          <%= f.submit "変更を保存する", class: "btn btn-info" %>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<div class = "button">
+  <div style = "text-align: center">
+    <%= link_to 'マイページに戻る', user_users_path(@user), class: "btn btn-sm btn-primary" %>
+  </div>
+</div>

@@ -1,0 +1,21 @@
+<!-- ログインユーザ情報の表示（プロフィール） -->
+<div class = "profile">
+    <div>
+      <%= attachment_image_tag(user, :icon_image, :size => "100x100",
+  	  format: 'jpeg', class: "img-rounded", fallback: "no_image.jpg", size:"100x100") %>
+  	</div>
+  	<div>
+  	  <label>ニックネーム<br><%= user.nickname %> Lv.<%= user.level %></label>
+  	</div>
+  	<div>
+  	  <% if user.introduction == nil %>
+  	    <label>introduction<br>設定されていません。</label>
+  	  <% else %>
+  	    <label>introduction<br><%= user.introduction %></label>
+  	  <% end %>
+  	</div>
+
+    <div class = "row">
+  	  <%= link_to 'プロフィール編集', edit_user_user_path(current_user), class: "col-xs-12 btn btn-primary" %>
+  	</div>
+</div>
