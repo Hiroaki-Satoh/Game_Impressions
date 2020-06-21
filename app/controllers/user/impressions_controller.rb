@@ -1,6 +1,6 @@
 class User::ImpressionsController < ApplicationController
-  before_action :authenticate_user!, expect: [:index, :show]
-  before_action :set_user, expext: [:index, :show]
+  before_action :authenticate_user!, except: [:index, :show]
+  before_action :set_user, except: [:index, :show]
 
   def new
   	@impression = Impression.new
