@@ -19,6 +19,16 @@
       	  	<th>コメント</th>
       	  </tr>
       	</thread>
+        <tbody>
+          <%= @Impressions.each do |impression| %>
+            <tr>
+              <td><%= impression.title %></td>
+              <td><%= impression.game_title.name %></td>
+              <td>いいね</td>
+              <td>コメント</td>
+            </tr>
+          <% end %>
+        </tbody>
       </table>
     </div>
     <!-- Impressions 一覧表示 ここまで -->
