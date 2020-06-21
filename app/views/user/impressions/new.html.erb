@@ -1,0 +1,31 @@
+<div class = "conteiner">
+  <div class="col-4">
+    <!-- ユーザプロフィールの表示 -->
+	<%= render 'user/users/profile', user: @user %>
+	<!-- リンクリストの表示 -->
+	<%= render 'user/users/link_list' %>
+  </div>
+
+  <!-- 新規作成フォーム -->
+  <div class = "col-8">
+  	  <%= form_with(model: @impression, url:{action: 'create'}) do |f| %>
+  	    <div class = "form-group">
+  	  	  <%= f.label :画像 %><br>
+  	  	  <%= f.attachment_field :image, class: "form-controll-file" %>
+  	    </div>
+  	    <div class = "form-group">
+  	  	  <%= f.label :タイトル %><br>
+  	  	  <%= f.text_field :name, placeholder: "タイトル（25文字以下）", class: "form-controll w-50" %>
+  	    </div>
+  	    <div class = "form-group">
+  	  	  <%= f.label :ゲームタイトル %><br>
+  	      <%= f.collection_select :game_title_id, @game_title, :id, :name, include_blank: "--- 選択して下さい ---" %>
+  	    </div>
+  	    <div class = "form-group">
+  	  	  <%= f.label :本文 %><br>
+  	  	  <%= f.text_area :body, size: "x10", placeholder: "本文（200文字以下）", class: "form-controll w-50" %>
+  	    </div>
+  	    <%= f.submit "投稿する", class: "btn btn-info" %>
+  	  <% end %>
+  </div>
+</div>

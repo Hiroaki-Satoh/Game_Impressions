@@ -1,6 +1,6 @@
 <div class = "container">
   <div class = "row">
-    <div class="col-4">
+    <div class = "col-4">
       <!-- ユーザプロフィールの表示 -->
 	    <%= render 'user/users/profile', user: @user %>
 	    <!-- リンクリストの表示 -->
@@ -10,6 +10,7 @@
     <!-- Impressions 一覧の表示 -->
     <div class = "col-8">
       <h2>Impressions</h2>
+      <%= link_to '新規作成', new_user_impression_path, class: "btn btn-primary" %>
       <table class = "table thead-light table-striped table-bordered text-nowrap">
       	<thread>
       	  <tr>
@@ -20,7 +21,7 @@
       	  </tr>
       	</thread>
         <tbody>
-          <%= @Impressions.each do |impression| %>
+          <%= @impressions.each do |impression| %>
             <tr>
               <td><%= impression.title %></td>
               <td><%= impression.game_title.name %></td>
