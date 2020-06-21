@@ -3,7 +3,7 @@ class User::ImpressionsController < ApplicationController
   before_action :set_user, expext: [:index, :show]
 
   def new
-  	@impressin = Impression.new
+  	@impression = Impression.new
   end
 
   def index
