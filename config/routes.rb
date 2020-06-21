@@ -28,6 +28,8 @@ Rails.application.routes.draw do
 
   # ユーザに関するルーティング設定 /user/xxxx
   namespace :user do
+  	resources :genres,      only: [:index]
+  	resources :game_titles, only: [:index, :show]
   	resources :users,       only: [:index, :show, :update, :edit]
   	resources :impressions
   end
