@@ -4,6 +4,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  has_many :impressions
+
   # ユーザアイコンの投稿：refile
   attachment :icon_image, destroy: false
 
