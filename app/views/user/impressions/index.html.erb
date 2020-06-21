@@ -1,33 +1,35 @@
 <div class = "conteiner">
-  <div class="col-4">
-    <!-- ユーザプロフィールの表示 -->
-	<%= render 'user/users/profile', user: @user %>
-	<!-- リンクリストの表示 -->
-	<%= render 'user/users/link_list' %>
-  </div>
+  <div class = "row">
+    <div class="col-4">
+      <!-- ユーザプロフィールの表示 -->
+	  <%= render 'user/users/profile', user: @user %>
+	  <!-- リンクリストの表示 -->
+	  <%= render 'user/users/link_list' %>
+    </div>
 
-  <!-- Impressionの一覧表示 -->
-  <div class = "col-8">
-    <h1>投稿一覧</h1>
-    <% @impressions.each do |impression| %>
-      <div class = "col-3">
-        <div class = "impression-image">
-		  <%= link_to(impression) do %>
-			<%= attachment_image_tag(impression, :image, :size => "200x200",
-            format: 'jpeg', class: "img-rounded", fallback: "no_image.jpg", size:"200x200") %>
-		  <% end %>
-		</div>
-		<h3>
-		  <%= link_to impression.title, impression %>
-		</h3>
-		<p>ゲームタイトル：<%= impression.game_title.name %></p>
-		<div>
+    <!-- Impressionの一覧表示 -->
+    <div class = "col-8">
+      <h1>投稿一覧</h1>
+      <% @impressions.each do |impression| %>
+        <div class = "col-3">
+          <div class = "impression-image">
+		    <%= link_to(impression) do %>
+			  <%= attachment_image_tag(impression, :image, :size => "200x200",
+              format: 'jpeg', class: "img-rounded", fallback: "no_image.jpg", size:"200x200") %>
+		    <% end %>
+		  </div>
+		  <h3>
+		    <%= link_to impression.title, impression %>
+		  </h3>
+		  <p>ゲームタイトル：<%= impression.game_title.name %></p>
+		  <div>
 		  <p>いいね  コメント</p>
-		</div>
-      </div>
-	<% end %>
-	<div class = "text-center">
-	  <%= pagenate @impressions %>
-	</div>
+		  </div>
+        </div>
+	  <% end %>
+	  <div class = "text-center">
+	    <%= paginate (@impressions) %>
+	  </div>
+    </div>
   </div>
 </div>
