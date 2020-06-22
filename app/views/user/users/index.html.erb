@@ -1,12 +1,6 @@
 <div class = "container">
   <div class = "row">
-    <!-- ユーザプロフィールの表示 -->
     <div class = "col-4">
-      <% if @user == current_user %>
-        <h2>Your Profile</h2>
-      <% else %>
-        <h2>User Profile</h2>
-      <% end %>
       <!-- ユーザプロフィールの表示 -->
       <%= render 'user/users/profile', user: @user %>
       <!-- リンクリストの表示 -->

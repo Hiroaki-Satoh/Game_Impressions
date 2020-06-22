@@ -1,18 +1,11 @@
 <div class = "container">
   <div class = "row">
-    <!-- ユーザプロフィールの表示 -->
-    <div class="col-4">
-      <% if @user == current_user %>
-        <h2>Your Profile</h2>
-      <% else %>
-        <h2>User Profile</h2>
-      <% end %>
+    <div class = "col-4">
       <!-- ユーザプロフィールの表示 -->
-	  <%= render 'user/users/profile', user: @user %>
-	  <!-- リンクリストの表示 -->
-	  <%= render 'user/users/link_list' %>
+	    <%= render 'user/users/profile', user: @user %>
+	    <!-- リンクリストの表示 -->
+	    <%= render 'user/users/link_list' %>
     </div>
-    <!-- ----------------- -->
 
     <!-- Impressions 一覧の表示 -->
     <div class = "col-8">
@@ -26,6 +19,16 @@
       	  	<th>コメント</th>
       	  </tr>
       	</thread>
+        <tbody>
+          <%= @impressions.each do |impression| %>
+            <tr>
+              <td><%= link_to impression.title, user_impression_path(impression) %></td>
+              <td><%= link_to impression.game_title.name, user_game_title_path(impression.game_title_id) %></td>
+              <td>いいね</td>
+              <td>コメント</td>
+            </tr>
+          <% end %>
+        </tbody>
       </table>
     </div>
     <!-- Impressions 一覧表示 ここまで -->
