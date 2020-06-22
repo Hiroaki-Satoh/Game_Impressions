@@ -1,13 +1,15 @@
 <div class = "conteiner">
-  <div class="col-4">
-    <!-- ユーザプロフィールの表示 -->
-	<%= render 'user/users/profile', user: @user %>
-	<!-- リンクリストの表示 -->
-	<%= render 'user/users/link_list' %>
-  </div>
+  <div class = "row">
+    <div class="col-4">
+      <!-- ユーザプロフィールの表示 -->
+	  <%= render 'user/users/profile', user: @user %>
+	  <!-- リンクリストの表示 -->
+	  <%= render 'user/users/link_list' %>
+    </div>
 
-  <!-- 新規作成フォーム -->
-  <div class = "col-8">
+    <!-- 新規作成フォーム -->
+    <div class = "col-8">
+      <h1>新規投稿作成</h1>
   	  <%= form_with(model: @impression, url:{action: 'create'}) do |f| %>
   	    <div class = "form-group">
   	  	  <%= f.label :画像 %><br>
@@ -15,11 +17,11 @@
   	    </div>
   	    <div class = "form-group">
   	  	  <%= f.label :タイトル %><br>
-  	  	  <%= f.text_field :name, placeholder: "タイトル（25文字以下）", class: "form-controll w-50" %>
+  	  	  <%= f.text_field :title, placeholder: "タイトル（25文字以下）", class: "form-controll w-50" %>
   	    </div>
   	    <div class = "form-group">
   	  	  <%= f.label :ゲームタイトル %><br>
-  	      <%= f.collection_select :game_title_id, @game_title, :id, :name, include_blank: "--- 選択して下さい ---" %>
+  	      <%= f.collection_select :game_title_id, @game_titles, :id, :name, include_blank: "--- 選択して下さい ---" %>
   	    </div>
   	    <div class = "form-group">
   	  	  <%= f.label :本文 %><br>
@@ -27,5 +29,6 @@
   	    </div>
   	    <%= f.submit "投稿する", class: "btn btn-info" %>
   	  <% end %>
+  	</div>
   </div>
 </div>
