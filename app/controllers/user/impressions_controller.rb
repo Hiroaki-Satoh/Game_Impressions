@@ -42,6 +42,13 @@ class User::ImpressionsController < ApplicationController
   	end
   end
 
+  def destroy
+    @impression = Impression.find(params[:id])
+  	@impression.destroy
+  	flash[:notice] = "削除しました"
+  	redirect_to user_user_path(@user) # マイページへ
+  end
+
   private
   def set_user
   	@user = current_user
