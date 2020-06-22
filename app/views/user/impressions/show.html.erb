@@ -20,8 +20,8 @@
           <p><%= @impression.body %></p>
           <p>コメント()</p>
           <% if @impression.user == current_user %>
-            <%= link_to "編集する", edit_user_impression_path(@impression), class: "btn btn-success" %>&esmp;
-            <%= link_to "削除する", @impression, method: :delete,
+            <%= link_to "編集する", edit_user_impression_path(@impression), class: "btn btn-success" %> 
+            <%= link_to "削除する", user_impression_path(@impression), method: :delete,
             data: {confirm: "本当に削除してもよろしいですか？"}, class: "btn btn-danger" %>
           <% end %>
         </div>
