@@ -1,9 +1,10 @@
 class User::ImpressionsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
-  before_action :set_user, except: [:index, :show]
+  before_action :set_user
 
   def new
   	@impression = Impression.new
+  	@game_titles = GameTitle.all
   end
 
   def index
@@ -17,11 +18,13 @@ class User::ImpressionsController < ApplicationController
 
   def create
   	@impression = Impression.new(impression_params)
-  	@impression.user.id = current_user
+  	@impression.user_id = current_user.id
   	if @impression.save
   	  flash[:success] = "投稿しました！"
   	  redirect_to user_impression_path(@impression.id) # 作成した感想の詳細ページへ
   	else
+  	  @impression = Impression.new
+  	  @game_titles = GameTitle.all
   	  render :new # 新規作成ページへ
   	end
   end
