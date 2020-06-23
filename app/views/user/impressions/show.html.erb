@@ -18,11 +18,22 @@
           <p>ゲームタイトル：<%= @impression.game_title.name %></p>
           <h4>impression</h4>
           <p><%= @impression.body %></p>
-          <% if @impression.user == current_user %>
-            <%= link_to "編集する", edit_user_impression_path(@impression), class: "btn btn-success" %> 
-            <%= link_to "削除する", user_impression_path(@impression), method: :delete,
-            data: {confirm: "本当に削除してもよろしいですか？"}, class: "btn btn-danger" %>
-          <% end %>
+          <div class = "row">
+            <div class = "col-3">
+              <h2 class = "like_<%= @impression.id %>">
+                <%= render 'user/likes/like', impression: @impression %>
+              </h2>
+            </div>
+            <div class = "col-7">
+              <% if @impression.user == current_user %>
+                <div class = "text-center">
+                  <%= link_to "編集する", edit_user_impression_path(@impression), class: "btn btn-success" %>
+                  <%= link_to "削除する", user_impression_path(@impression), method: :delete,
+                  data: {confirm: "本当に削除してもよろしいですか？"}, class: "btn btn-danger" %>
+                </div>
+              <% end %>
+            </div>
+          </div>
         </div>
       </div>
       <!-- Impression 詳細表示 ここまで -->
