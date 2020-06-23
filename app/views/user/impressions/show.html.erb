@@ -28,13 +28,50 @@
       </div>
       <!-- Impression 詳細表示 ここまで -->
 
-      <!-- コメント一覧&投稿フォーム -->
+      <!-- コメント一覧 -->
       <div class = "row">
+        <h3>コメント一覧</h3>
+        <% @comments.each do |comment| %>
+          <div class="col-8">
+            <div class = "comment_user_icon">
+              <%= attachment_image_tag(user, :icon_image, :size => "40x40",
+              format: 'jpeg', class: "img-rounded", fallback: "no_image.jpg", size:"40x40") %>
+            </div>
+            <div class = "comment_user">
+              <%= comment.user.name %>
+            </div>
+          </div>
+          <div class="col-8">
+            <div class = "comment">
+              <p><%= comment.body %></p>
+            </div>
+          </div>
+          <div class="col-8">
+            <% if current_user == game_comment.user %>
+              <%= link_to '削除', user_impression_comments_path(comment.id, comment.impression.id),
+              class: 'btn-sm btn-danger', method: :delete %>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+      <!-- コメント一覧 ここまで -->
+
+      <!-- コメント入力フォーム -->
+      <div class = "row">
+        <h4>コメント入力フォーム</h4>
         <div class = "col-8">
-      	  <h4>コメント</h4>
+          <div class="form-group">
+            <%= form_with(model: [@impression, @comment], url:{action: 'create'}) do |comment| %>
+              <%= render 'layouts/error_messeages', model: @comment %>
+              <%= comment.label :コメント %><br>
+              <%= comment.text_area :body, size: "x10",
+              placeholder: "コメント（100文字以下）", class: "form-controll w-100" %>
+              <%= comment.submit 'コメントする', class: "btn btn-info" %>
+            <% end %>
+          </div>
         </div>
       </div>
-      <!-- コメント一覧&投稿フォーム ここまで -->
+      <!-- コメント入力フォーム ここまで -->
     </div>
   </div>
 </div>
