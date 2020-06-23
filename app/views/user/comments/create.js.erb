@@ -1,0 +1,4 @@
+// コメントの非同期通信
+$("textarea").val('');
+$(".comment_<%= @impression.id %>")
+ .html("<%= j(render 'user/comments/index', comments: @impression_comments ) %>");
