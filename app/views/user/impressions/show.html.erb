@@ -18,7 +18,6 @@
           <p>ゲームタイトル：<%= @impression.game_title.name %></p>
           <h4>impression</h4>
           <p><%= @impression.body %></p>
-          <p>コメント()</p>
           <% if @impression.user == current_user %>
             <%= link_to "編集する", edit_user_impression_path(@impression), class: "btn btn-success" %> 
             <%= link_to "削除する", user_impression_path(@impression), method: :delete,
@@ -28,13 +27,12 @@
       </div>
       <!-- Impression 詳細表示 ここまで -->
 
-      <!-- コメント一覧&投稿フォーム -->
-      <div class = "row">
-        <div class = "col-8">
-      	  <h4>コメント</h4>
-        </div>
+      <!-- コメント一覧 -->
+      <div class = "comment_<%= @impression.id %>">
+        <%= render 'user/comments/index' %>
       </div>
-      <!-- コメント一覧&投稿フォーム ここまで -->
+      <!-- コメント入力フォーム -->
+      <%= render 'user/comments/form' %>
     </div>
   </div>
 </div>

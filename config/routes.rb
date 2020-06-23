@@ -31,6 +31,8 @@ Rails.application.routes.draw do
   	resources :genres,      only: [:index]
   	resources :game_titles, only: [:index, :show]
   	resources :users,       only: [:index, :show, :update, :edit]
-  	resources :impressions
+  	resources :impressions do
+  	  resource :comments,    only: [:create, :destroy]
+  	end
   end
 end

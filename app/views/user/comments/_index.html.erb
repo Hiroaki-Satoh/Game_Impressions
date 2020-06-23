@@ -1,0 +1,34 @@
+<!-- コメント一覧表示 部分テンプレート -->
+<div class = "row">
+  <h3>コメント一覧（<%= @impression.comments.count %>）</h3>
+  <table class="table table-bordered">
+    <% @impression.comments.each do |comment| %>
+      <div class="col-6">
+        <tr>
+          <td>
+            <div class = "comment_user_icon">
+              <!-- ユーザアイコン -->
+              <%= attachment_image_tag(comment.user, :icon_image, :size => "40x40",
+              format: 'jpeg', class: "img-rounded", fallback: "no_image.jpg", size:"40x40") %>
+              <!-- ユーザニックネーム -->
+              <%= link_to comment.user.nickname, user_user_path(comment.user_id), class: "btn btn-link" %>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <div class = "comment">
+              <%= comment.body %>
+            </div>
+            <% if current_user == comment.user %>
+              <div class = "text-right">
+                <%= link_to '削除', user_impression_comments_path(comment.id),
+                class: 'btn-sm btn-danger', method: :delete, remote: true %>
+              </div>
+            <% end %>
+          </td>
+        </tr>
+      </div>
+    <% end %>
+  </table>
+</div>
