@@ -6,6 +6,7 @@ class User < ApplicationRecord
 
   has_many :impressions
   has_many :comments, dependent: :destroy
+  has_many :like,     dependent: :destroy
 
   # ユーザアイコンの投稿：refile
   attachment :icon_image, destroy: false

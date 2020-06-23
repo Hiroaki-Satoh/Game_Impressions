@@ -4,6 +4,7 @@ class Impression < ApplicationRecord
   belongs_to :game_title
 
   has_many :comments, dependent: :destroy
+  has_many :like,     dependent: :destroy
 
   # 感想の画像投稿：refile
   attachment :image, destroy: false
