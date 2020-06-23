@@ -24,7 +24,7 @@
             <tr>
               <td><%= link_to impression.title, user_impression_path(impression) %></td>
               <td><%= link_to impression.game_title.name, user_game_title_path(impression.game_title_id) %></td>
-              <td align = center>
+              <td class = "like_<%= impression.id %>" align = center>
                 <%= render 'user/likes/like', impression: impression %>
               </td>
               <td>コメント(<%= impression.comments.count %>)</td>
