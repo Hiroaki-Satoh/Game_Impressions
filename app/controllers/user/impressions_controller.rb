@@ -14,6 +14,9 @@ class User::ImpressionsController < ApplicationController
 
   def show
   	@impression = Impression.find(params[:id])
+    # コメント機能
+    @comment = Comment.new
+    @comments = @impression.comments
   end
 
   def create
