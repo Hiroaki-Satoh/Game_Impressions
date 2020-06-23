@@ -3,18 +3,18 @@ class User::CommentsController < ApplicationController
 
   def create
     @impression = Impression.find(params[:impression_id])
-    @comment = @impression.comments.new(comment_params)
-    @comment.user_id == current_user.id
+    @comment = current_user.comments.new(comment_params)
+    @comment.impression_id = @impression.id
     if @comment.save
       flash[:success] = "コメントを投稿しました！"
-      redirect_back(fallback_location: root_url) # 1つ前のURL（Impression詳細）へ
+      # redirect_back(fallback_location: root_url) # 1つ前のURL（Impression詳細）へ
     end
   end
 
   def destroy
-    @comment = Comment.find_by(id: params[:id], impression_id: params[:impresison_id])
+    @comment = Comment.find(params[:impression_id])
     if @comment.destroy
-      redirect_back(fallback_location: root_url) # 1つ前のURL（Impression詳細）へ
+       redirect_back(fallback_location: root_url) # 1つ前のURL（Impression詳細）へ
     end
   end
 
