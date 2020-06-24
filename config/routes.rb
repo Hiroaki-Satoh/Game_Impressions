@@ -30,7 +30,7 @@ Rails.application.routes.draw do
   namespace :user do
   	resources :genres,      only: [:index]
   	resources :game_titles, only: [:index, :show] do
-  	  resource :reviews,    only: [:index, :create, :update, :edit]
+  	  resource :reviews,    only: [:create, :update, :edit]
   	end
   	resources :users,       only: [:index, :show, :update, :edit]
   	resources :impressions do
