@@ -29,11 +29,13 @@ Rails.application.routes.draw do
   # ユーザに関するルーティング設定 /user/xxxx
   namespace :user do
   	resources :genres,      only: [:index]
-  	resources :game_titles, only: [:index, :show]
+  	resources :game_titles, only: [:index, :show] do
+  	  resource :reviews,    only: [:index, :create, :update, :edit]
+  	end
   	resources :users,       only: [:index, :show, :update, :edit]
   	resources :impressions do
   	  resource :comments,   only: [:create, :destroy]
-  	  resource :likes,      only:[:create, :destroy]
+  	  resource :likes,      only: [:create, :destroy]
   	end
   end
 end
