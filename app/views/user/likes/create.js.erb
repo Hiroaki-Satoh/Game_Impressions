@@ -1,0 +1,3 @@
+// いいねの非同期通信
+$(".like_<%= @impression.id %>")
+ .html("<%= j(render 'user/likes/like',  impression: @impressions) %>")

@@ -32,7 +32,8 @@ Rails.application.routes.draw do
   	resources :game_titles, only: [:index, :show]
   	resources :users,       only: [:index, :show, :update, :edit]
   	resources :impressions do
-  	  resource :comments,    only: [:create, :destroy]
+  	  resource :comments,   only: [:create, :destroy]
+  	  resource :likes,      only:[:create, :destroy]
   	end
   end
 end

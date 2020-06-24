@@ -19,19 +19,30 @@
                 format: 'jpeg', class: "img-rounded", fallback: "no_image.jpg", size:"200x200") %>
 		      <% end %>
 		    </div>
-		    <h3>
-		      <%= link_to impression.title, user_impression_path(impression) %>
-		    </h3>
-		    <p><%= impression.game_title.name %></p>
-		    <div>
-		    <p>コメント（<%= impression.comments.count %>）</p>
+		    <div class = "text-center">
+		      <h3><%= link_to impression.title, user_impression_path(impression) %></h3>
 		    </div>
+		    <div class = "game-title text-center">
+		      <%= impression.game_title.name %>
+		    </div>
+		    <div class = "row justify-content-center">
+		      <div class = "col-3">
+		        <div class = "like_<%= impression.id %> text-center">
+                  <%= render 'user/likes/like', impression: impression %>
+                </div>
+              </div>
+              <div class = "col-5">
+              	<div class = "text-left">
+                  コメント（<%= impression.comments.count %>）
+                </div>
+              </div>
+            </div>
           </div>
 	    <% end %>
 	    <div class = "text-center">
 	      <%= paginate (@impressions) %>
 	    </div>
-	  </div>
+      </div>
     </div>
   </div>
 </div>
