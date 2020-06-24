@@ -14,7 +14,7 @@ class User::CommentsController < ApplicationController
   def destroy
     @comment = Comment.find(params[:impression_id])
     if @comment.destroy
-       redirect_back(fallback_location: root_url) # 1つ前のURL（Impression詳細）へ
+      redirect_back(fallback_location: root_url) # 1つ前のURL（Impression詳細）へ
     end
   end
 
