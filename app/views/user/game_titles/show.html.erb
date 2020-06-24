@@ -20,11 +20,10 @@
   	      <p>ゲーム紹介文<br><%= @game_title.introduction %></p>
         </div>
       </div>
-      <div class = "row">
-        <div class = "col-12">
-          <h2>Reviews</h2>
-        </div>
-      </div>
+      <!-- レビュー一覧表示 -->
+      <%= render 'user/reviews/index' %>
+      <!-- レビュー入力フォームの表示 -->
+      <%= render 'user/reviews/form' %>
   	</div>
   </div>
 </div>
