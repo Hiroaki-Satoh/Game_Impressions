@@ -1,15 +1,6 @@
 <!-- レビュー一覧表示 部分テンプレート -->
 <div class = "row">
   <h3>Rviews（<%= @game_title.reviews.count %>）</h3>
-</div>
-<div class = "row">
-    <div class = "col-8">
-      <li>グラフィック：<%= @game_title.reviews.average(:graphic) %></li>
-      <li>サウンド：<%= @game_title.reviews.average(:sound) %></li>
-      <li>ストーリー：<%= @game_title.reviews.average(:story)%></li>
-      <li>ボリューム：<%= @game_title.reviews.average(:volume)%></li>
-      <li>おすすめ度：<%= @game_title.reviews.average(:recommended)%></li>
-  </div>
   <table class="table table-bordered">
     <% @game_title.reviews.each do |review| %>
       <div class="col-6">
