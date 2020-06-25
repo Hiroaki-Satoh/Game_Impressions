@@ -10,7 +10,6 @@ class User::UsersController < ApplicationController
 
   def show
   	@user = User.find(params[:id])
-
     @impressions = @user.impressions
   end
 
