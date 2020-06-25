@@ -1,0 +1,15 @@
+<!-- フラッシュメッセージの表示 部分テンプレート -->
+<!-- flash[:notice], flash[:success], flash[:alert] -->
+<% if flash[:notice] %>
+  <div>
+	<span id ="notice"><%= notice %></span>
+  </div>
+<% elsif flash[:success] %>
+  <div class = "success">
+    <span><%= flash[:success] %></span>
+  </div>
+<% elsif flash[:alert] %>
+  <div class = "alert">
+	<span><%= flash[:alert] %></span>
+  </div>
+<% end %>
