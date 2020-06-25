@@ -17,7 +17,8 @@ class User::ReviewsController < ApplicationController
 
   def update
   	@review = Review.find(params[:game_title_id])
-  	if @review.update
+    binding.pry
+  	if @review.update(review_params)
   	  flash[:notice] = "レビューを更新しました！"
   	  redirect_back(fallback_location: root_url) # 1つ前のURL（game_title詳細）へ
   	end
