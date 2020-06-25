@@ -1,12 +1,6 @@
 <div class = "container">
   <div class = "row">
     <div class = "col-4">
-      <% user_likes = 0 %>
-      <% @impressions.each do |f| %>
-        <% user_likes = user_likes + f.likes.count %>
-        <%= user_likes %>
-        <%= hidden_field_tag :user_likes, @user_likes %>
-      <% end %>
       <!-- ユーザプロフィールの表示 -->
 	    <%= render 'user/users/profile', user: @user %>
 	    <!-- リンクリストの表示 -->
