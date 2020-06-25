@@ -12,6 +12,7 @@
  *
  *= require_tree .
  *= require_self
+ *= require jquery.raty.css
  */
 
 /* Custom bootstrap variables must be set or imported *before* bootstrap. */
@@ -19,4 +20,22 @@
 
 .button {
 	margin: 20px auto;
+}
+
+.top-image {
+  width: 100%;
+  height: 300px;
+  background-image: image-url("top_image.jpg");
+  background-size: cover;
+  background-position: center;
+  margin: 0 0 20px 0;
+}
+
+.about-image {
+  width: 100%;
+  height: 300px;
+  background-image: image-url("about_image.jpg");
+  background-size: cover;
+  background-position: center;
+  margin: 0 0 20px 0;
 }

@@ -1,0 +1,46 @@
+<!-- レビュー一覧表示 部分テンプレート -->
+<div class = "row">
+  <h3>Rviews（<%= @game_title.reviews.count %>）</h3>
+  <table class="table table-bordered">
+    <% @game_title.reviews.each do |review| %>
+      <div class="col-6">
+        <tr>
+          <td colspan = 2>
+            <div class = "review_user_icon">
+              <!-- ユーザアイコン -->
+              <%= attachment_image_tag(review.user, :icon_image, :size => "40x40",
+              format: 'jpeg', class: "img-rounded", fallback: "no_image.jpg", size:"40x40") %>
+              <!-- ユーザニックネーム -->
+              <%= link_to review.user.nickname, user_user_path(review.user_id), class: "btn btn-link" %>
+              <% if review.user == current_user %>
+                <%= link_to "編集する", edit_user_game_title_reviews_path(review), class: "btn btn-success" %>
+              <% end %>
+            </div>
+          </td>
+        </tr>
+        <!-- 評価項目を表示する -->
+        <tr>
+          <td>グラフィック</td><td><%= review.graphic%></td>
+        </tr>
+        <tr>
+          <td>サウンド</td><td><%= review.sound%></td>
+        </tr>
+        <tr>
+          <td>ストーリー</td><td><%= review.story%></td>
+        </tr>
+        <tr>
+          <td>ボリューム</td><td><%= review.volume%></td>
+        </tr>
+        <tr>
+          <td>おすすめ度</td><td><%= review.recommended%></td>
+        </tr>
+        <tr>
+          <td colspan = 2>
+            <h4><%= review.title %></h4>
+            <p><%= review.body %></p>
+          </td>
+        </tr>
+      </div>
+    <% end %>
+  </table>
+</div>

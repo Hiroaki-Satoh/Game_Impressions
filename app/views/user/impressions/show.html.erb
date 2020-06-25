@@ -1,16 +1,16 @@
 <div class = "conteiner">
   <div class = "row">
     <div class = "col-4">
-      <!-- ユーザプロフィールの表示 -->
+    <!-- ユーザプロフィールの表示 -->
 	  <%= render 'user/users/profile', user: @user %>
 	  <!-- リンクリストの表示 -->
 	  <%= render 'user/users/link_list' %>
     </div>
 
     <!-- Impression 詳細表示 -->
-    <div class = col-8>
+    <div class = "col-8">
       <div class = "row">
-      	<div class = "col-8">
+        <div class = "col-8">
           <h2>Impression detail</h2>
             <%= attachment_image_tag(@impression, :image, :size => "500x300",
             format: 'jpeg', class: "img-rounded", fallback: "no_image.jpg", size:"500x300") %>

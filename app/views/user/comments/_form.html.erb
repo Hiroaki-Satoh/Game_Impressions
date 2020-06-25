@@ -1,16 +1,19 @@
 <!-- コメント入力フォーム 部分テンプレート-->
 <% if user_signed_in? %>
-  <div class = "row">
+  <div class = "row justify-content-center">
     <h4>コメント入力フォーム</h4>
     <div class = "col-8">
-      <div class="form-group">
-        <%= form_with(model: [@impression, @comment],
-        url: user_impression_comments_path(@impression.id)) do |comment| %>
-          <%= render 'layouts/error_messeages', model: @comment %>
+      <%= form_with(model: [@impression, @comment],
+      url: user_impression_comments_path(@impression.id)) do |comment| %>
+        <%= render 'layouts/error_messeages', model: @comment %>
+        <div class="form-group">
           <%= comment.label :コメント %><br>
           <%= comment.text_area :body, size: "x10",
           placeholder: "コメント（100文字以下）", class: "form-controll w-100" %>
+        </div>
+        <div class = "text-center">
           <%= comment.submit 'コメントする', class: "btn btn-info" %>
+        </div>
         <% end %>
       </div>
     </div>

@@ -1,0 +1,45 @@
+<!-- レビュー入力フォーム 部分テンプレート -->
+<% if user_signed_in? %>
+  <div class = "row">
+    <h4>Revew 入力フォーム</h4>
+    <div class = "col-10">
+      <%= form_with(model: [@game_title, @review],
+      url: user_game_title_reviews_path(@game_title.id)) do |review| %>
+        <!-- バリデーションエラーメッセージの表示 -->
+        <%= render 'layouts/error_messeages', model: @review %>
+        <div class="form-group">
+          <%= review.label :グラフィック %>
+          <%= review.number_field :graphic, min:1, max: 5, class: "number-field col-xs-4"%>
+        </div>
+        <div class="form-group">
+          <%= review.label :サウンド %>
+          <%= review.number_field :sound, min: 1, max: 5, class: "number-field col-xs-4" %>
+        </div>
+        <div class="form-group">
+          <%= review.label :ストーリー %>
+          <%= review.number_field :story, min: 1, max: 5, class: "number-field col-xs-4" %>
+        </div>
+        <div class="form-group">
+          <%= review.label :ボリューム %>
+          <%= review.number_field :volume, min: 1, max: 5, class: "number-field col-xs-4" %>
+        </div>
+        <div class="form-group">
+          <%= review.label :おすすめ度 %>
+          <%= review.number_field :recommended, min: 1, max: 5, class: "number-field col-xs-4" %>
+        </div>
+        <div class="form-group">
+          <%= review.label :タイトル %><br>
+          <%= review.text_field :title,
+          placeholder: "タイトル（25文字以下）", class: "form-controll w-100" %>
+        </div>
+        <div class="form-group">
+          <%= review.label :Review %><br>
+          <%= review.text_area :body, size: "x10",
+          placeholder: "レビュー本文（250文字以下）", class: "form-controll w-100" %>
+        </div>
+          <%= review.submit '評価を完了する', class: "btn btn-info" %>
+      <% end %>
+    </div>
+  </div>
+<% end %>
+

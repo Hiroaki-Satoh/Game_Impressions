@@ -15,8 +15,8 @@
           <div class = "col-6">
             <div class = "impression-image text-center">
 		      <%= link_to(user_impression_path(impression)) do %>
-			    <%= attachment_image_tag(impression, :image, :size => "200x200",
-                format: 'jpeg', class: "img-rounded", fallback: "no_image.jpg", size:"200x200") %>
+			      <%= attachment_image_tag(impression, :image, :size => "200x200",
+            format: 'jpeg', class: "img-rounded", fallback: "no_image.jpg", size:"200x200") %>
 		      <% end %>
 		    </div>
 		    <div class = "text-center">

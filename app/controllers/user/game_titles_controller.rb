@@ -8,6 +8,9 @@ class User::GameTitlesController < ApplicationController
 
   def show
   	@game_title = GameTitle.find(params[:id])
+    # レビュー機能
+    @review = Review.new
+    @reviews = @game_title.reviews.order("id DESC").page(params[:page]).per(5)
   end
 
   private
