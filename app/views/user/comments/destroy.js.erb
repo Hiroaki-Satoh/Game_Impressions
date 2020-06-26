@@ -1,0 +1,3 @@
+// コメント削除 非同期通信
+$(".comment_<%= @impression_id %>")
+ .html("<%= j(render 'user/comments/index',  comments: @impression_comments ) %>")

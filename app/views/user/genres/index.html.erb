@@ -1,0 +1,24 @@
+<div class = "container">
+  <div class = "row">
+    <div class = "col-4">
+      <!-- ユーザプロフィールの表示 -->
+      <%= render 'user/users/profile', user: @user %>
+      <!-- リンクリストの表示 -->
+      <%= render 'user/users/link_list' %>
+    </div>
+
+    <!-- ジャンル一覧表示 とりあえず表示するだけで-->
+    <div class = "col-8">
+      <h1>ジャンル一覧</h1>
+      <div class = row>
+  	    <% @genres.each do |genre| %>
+          <% if genre.is_valid == true %>
+            <div class = "col-4">
+              <li><%= genre.name %></li>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

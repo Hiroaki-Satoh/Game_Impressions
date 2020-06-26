@@ -1,0 +1,29 @@
+<div class = "container">
+  <div class = "row">
+    <div class = "col-4">
+      <!-- ユーザプロフィールの表示 -->
+      <%= render 'user/users/profile', user: @user %>
+      <!-- リンクリストの表示 -->
+      <%= render 'user/users/link_list' %>
+    </div>
+
+    <div class = "col-8">
+      <h1>ゲームタイトル一覧</h1>
+      <div class = row>
+  	    <% @game_titles.each do |game_title| %>
+          <div class = "col-4">
+            <div class = "game_title-image text-center">
+              <%= link_to(user_game_title_path(game_title)) do %>
+                <%= attachment_image_tag(game_title, :game_image, :size => "100x100",
+                format: 'jpeg', class: "img-rounded", fallback: "no_image.jpg", size:"100x100") %>
+              <% end %>
+            </div>
+            <div class = "text-center">
+              <%= link_to game_title.name, user_game_title_path(game_title), class: "btn btn-link" %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

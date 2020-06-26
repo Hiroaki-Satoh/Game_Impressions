@@ -1,0 +1,49 @@
+<div class = "conteiner">
+  <div class = "row">
+    <div class = "col-4">
+    <!-- ユーザプロフィールの表示 -->
+	  <%= render 'user/users/profile', user: @user %>
+	  <!-- リンクリストの表示 -->
+	  <%= render 'user/users/link_list' %>
+    </div>
+
+    <!-- Impression 詳細表示 -->
+    <div class = "col-8">
+      <div class = "row">
+        <div class = "col-8">
+          <h2>Impression detail</h2>
+            <%= attachment_image_tag(@impression, :image, :size => "500x300",
+            format: 'jpeg', class: "img-rounded", fallback: "no_image.jpg", size:"500x300") %>
+          <h3><%= @impression.title %></h3>
+          <p>ゲームタイトル：<%= @impression.game_title.name %></p>
+          <h4>impression</h4>
+          <p><%= @impression.body %></p>
+          <div class = "row">
+            <div class = "col-3">
+              <h2 class = "like_<%= @impression.id %>">
+                <%= render 'user/likes/like', impression: @impression %>
+              </h2>
+            </div>
+            <div class = "col-7">
+              <% if @impression.user == current_user %>
+                <div class = "text-center">
+                  <%= link_to "編集する", edit_user_impression_path(@impression), class: "btn btn-success" %>
+                  <%= link_to "削除する", user_impression_path(@impression), method: :delete,
+                  data: {confirm: "本当に削除してもよろしいですか？"}, class: "btn btn-danger" %>
+                </div>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Impression 詳細表示 ここまで -->
+
+      <!-- コメント一覧 -->
+      <div class = "comment_<%= @impression.id %>">
+        <%= render 'user/comments/index' %>
+      </div>
+      <!-- コメント入力フォーム -->
+      <%= render 'user/comments/form' %>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,38 @@
+<div class = "container">
+  <div class = "row">
+    <div class = "col-4">
+      <!-- ユーザプロフィールの表示 -->
+	    <%= render 'user/users/profile', user: @user %>
+	    <!-- リンクリストの表示 -->
+	    <%= render 'user/users/link_list' %>
+    </div>
+
+    <!-- Impressions 一覧の表示 -->
+    <div class = "col-8">
+      <h2>Impressions</h2>
+      <table class = "table thead-light table-striped table-bordered text-nowrap">
+        <thread>
+          <tr>
+            <th>タイトル</th>
+            <th>ゲームタイトル</th>
+            <th>いいね</th>
+            <th>コメント</th>
+          </tr>
+        </thread>
+        <tbody>
+          <% @impressions.each do |impression| %>
+            <tr>
+              <td><%= link_to impression.title, user_impression_path(impression) %></td>
+              <td><%= link_to impression.game_title.name, user_game_title_path(impression.game_title_id) %></td>
+              <td class = "like_<%= impression.id %>" align = center>
+                <%= render 'user/likes/like', impression: impression %>
+              </td>
+              <td>コメント(<%= impression.comments.count %>)</td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+    <!-- Impressions 一覧表示 ここまで -->
+  </div>
+</div>
