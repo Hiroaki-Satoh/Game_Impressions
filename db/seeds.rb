@@ -8,7 +8,7 @@
 
 # 管理者アカウント
 Admin.create!(
-	nickname: 'Administrator',
-	email:    'AdminMail@Example',
-	password: 'password'
+	nickname: ENV['admin_nickname'],
+	email:    ENV['admin_email'],
+	password: ENV['admin_password']
 )
