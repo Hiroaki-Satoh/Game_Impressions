@@ -14,36 +14,36 @@ Admin.create!(
 )
 
 Genre.create!(
-	name:     "未分類"
+	name:     "未分類",
 	is_valid: true
 	)
 
 Genre.create!(
-	name:     "RPG"
+	name:     "RPG",
 	is_valid: true
 	)
 
 Genre.create!(
-	name:     "アクション"
+	name:     "アクション",
 	is_valid: true
 	)
 
 Genre.create!(
-	name:     "シューティング"
+	name:     "シューティング",
 	is_valid: true
 	)
 
 Genre.create!(
-	name:     "シュミレーション"
+	name:     "シュミレーション",
 	is_valid: true
 	)
 
 Genre.create!(
-	name:     "パズル"
+	name:     "パズル",
 	is_valid: true
 	)
 
 Genre.create!(
-	name:     "音楽"
+	name:     "音楽",
 	is_valid: true
 	)
