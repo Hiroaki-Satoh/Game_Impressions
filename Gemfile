@@ -77,3 +77,9 @@ gem "refile-mini_magick"
 
 # debug
 gem 'pry-byebug'
+
+# deploy
+gem 'dotenv-rails'    # 環境変数化
+group :production do
+  gem 'mysql2'
+end
