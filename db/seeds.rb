@@ -12,3 +12,38 @@ Admin.create!(
 	email:    ENV['admin_email'],
 	password: ENV['admin_password']
 )
+
+Genre.create!(
+	name:     "未分類"
+	is_valid: true
+	)
+
+Genre.create!(
+	name:     "RPG"
+	is_valid: true
+	)
+
+Genre.create!(
+	name:     "アクション"
+	is_valid: true
+	)
+
+Genre.create!(
+	name:     "シューティング"
+	is_valid: true
+	)
+
+Genre.create!(
+	name:     "シュミレーション"
+	is_valid: true
+	)
+
+Genre.create!(
+	name:     "パズル"
+	is_valid: true
+	)
+
+Genre.create!(
+	name:     "音楽"
+	is_valid: true
+	)
