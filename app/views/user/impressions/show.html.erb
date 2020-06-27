@@ -15,7 +15,10 @@
             <%= attachment_image_tag(@impression, :image, :size => "500x300",
             format: 'jpeg', class: "img-rounded", fallback: "no_image.jpg", size:"500x300") %>
           <h3><%= @impression.title %></h3>
-          <p>ゲームタイトル：<%= @impression.game_title.name %></p>
+          <p>
+            ゲームタイトル：<%= link_to @impression.game_title.name,
+            user_game_title_path(@impression.game_title_id) %>
+          </p>
           <h4>impression</h4>
           <p><%= @impression.body %></p>
           <div class = "row">
