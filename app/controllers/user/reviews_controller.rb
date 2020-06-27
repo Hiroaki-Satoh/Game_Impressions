@@ -8,7 +8,10 @@ class User::ReviewsController < ApplicationController
   	if @review.save
   	  flash[:success] = "レビューを投稿しました！"
   	  redirect_back(fallback_location: root_url) # 1つ前のURL（game_title詳細）へ
-  	end
+  	else
+      flash[:alert] = "投稿に失敗しました。"
+      redirect_back(fallback_location: root_url)
+    end
   end
 
   def edit
