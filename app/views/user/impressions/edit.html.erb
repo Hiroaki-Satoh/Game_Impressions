@@ -12,7 +12,9 @@
       <h1>投稿の編集</h1>
   	  <%= form_with(model: @impression, url:{action: 'update'}) do |f| %>
   	    <div class = "form-group">
-  	  	  <%= f.label :画像 %><br>
+          <%= attachment_image_tag(@impression, :image, :size => "100x100",
+          format: 'jpeg', class: "img-rounded", fallback: "no_image.jpg", size:"100x100") %><br>
+  	  	  <%= f.label :画像の変更 %><br>
   	  	  <%= f.attachment_field :image, class: "form-controll-file" %>
   	    </div>
   	    <div class = "form-group">
@@ -21,7 +23,7 @@
   	    </div>
   	    <div class = "form-group">
   	  	  <%= f.label :ゲームタイトル %><br>
-  	      <%= f.collection_select :game_title_id, @game_titles, :id, :name, include_blank: "--- 選択して下さい ---" %>
+  	      <%= f.collection_select :game_title_id, GameTitle.all, :id, :name, include_blank: "--- 選択して下さい ---" %>
   	    </div>
   	    <div class = "form-group">
   	  	  <%= f.label :本文 %><br>
