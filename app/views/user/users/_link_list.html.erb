@@ -1,5 +1,5 @@
 <!-- リンクリストの表示 -->
-<div class = "list-group" style = "max-width: 400px;">
+<div class = "list-group" style = "max-width: 400px; margin: 10px;">
   <% if admin_signed_in? || user_signed_in? %>
     <%= link_to 'トップページ', root_path, class: "list-group-item list-group-item-action" %>
     <%= link_to 'GameImpressionsとは', homes_about_path, class: "list-group-item list-group-item-action" %>

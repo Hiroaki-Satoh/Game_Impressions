@@ -1,8 +1,10 @@
 <!-- コメント入力フォーム 部分テンプレート-->
 <% if user_signed_in? %>
-  <div class = "row justify-content-center">
-    <h4>コメント入力フォーム</h4>
+  <div class = "row">
     <div class = "col-8">
+    <h4>コメント入力フォーム</h4>
+    </div>
+    <div class = "col-7">
       <%= form_with(model: [@impression, @comment],
       url: user_impression_comments_path(@impression.id)) do |comment| %>
         <%= render 'layouts/error_messeages', model: @comment %>
@@ -14,8 +16,7 @@
         <div class = "text-center">
           <%= comment.submit 'コメントする', class: "btn btn-info" %>
         </div>
-        <% end %>
-      </div>
+      <% end %>
     </div>
   </div>
 <% end %>
