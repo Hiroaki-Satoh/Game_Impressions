@@ -1,9 +1,11 @@
-<!-- リンクリストの表示 部分テンプレート -->
-<div class = "list-group" style = "max-width: 400px;">
-  <%= link_to 'GameImpressions トップページ', root_path, class: "list-group-item list-group-item-action" %>
-  <%= link_to 'GameImpressionsとは', homes_about_path, class: "list-group-item list-group-item-action" %>
-  <%= link_to 'ゲームタイトルの追加', admin_game_titles_path, class: "list-group-item list-group-item-action" %>
-  <%= link_to 'ジャンルの追加', admin_genres_path, class: "list-group-item list-group-item-action" %>
-  <%= link_to '登録ユーザ一覧', admin_users_path, class: "list-group-item list-group-item-action" %>
-  <%= link_to '投稿一覧', admin_impressions_path, class: "list-group-item list-group-item-action" %>
+<%# 管理者用リンクリストの表示 部分テンプレート %>
+<div class = "col-4">
+  <div class = "list-group" style = "max-width: 400px;">
+    <%= link_to 'GameImpressions トップページ', root_path, class: "list-group-item list-group-item-action" %>
+    <%= link_to 'GameImpressionsとは', homes_about_path, class: "list-group-item list-group-item-action" %>
+    <%= link_to 'ゲームタイトルの追加', admin_game_titles_path, class: "list-group-item list-group-item-action" %>
+    <%= link_to 'ジャンルの追加', admin_genres_path, class: "list-group-item list-group-item-action" %>
+    <%= link_to '登録ユーザ一覧', admin_users_path, class: "list-group-item list-group-item-action" %>
+    <%= link_to '投稿一覧', admin_impressions_path, class: "list-group-item list-group-item-action" %>
+  </div>
 </div>
