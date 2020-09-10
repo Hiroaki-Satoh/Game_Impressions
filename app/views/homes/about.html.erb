@@ -1,8 +1,16 @@
-<div class = "about-image"></div>
-
+<%# アバウトページ %>
 <div class = "container">
+  <div class = "about-image"></div>
   <div class = "row justify-content-center">
-    <div class = "col-10">
+    <div class = "col-3">
+      <div class = "list-group" style = "max-width: 400px;">
+        <%= link_to 'トップページへ', root_path, class: "list-group-item list-group-item-action" %>
+        <%= link_to 'ゲームタイトル一覧へ', root_path, class: "list-group-item list-group-item-action" %>
+        <%= link_to 'ジャンル一覧へ', user_genres_path, class: "list-group-item list-group-item-action" %>
+        <%= link_to '投稿一覧へ', user_impressions_path, class: "list-group-item list-group-item-action" %>
+      </div>
+    </div>
+    <div class = "col-9">
       <h2>GameImpressionsとは</h2>
       <ul>
         <li>～すばらしいゲーム体験を共有しよう～をテーマにした、ゲームの感想、評価の投稿サイトです。</li>
@@ -12,15 +20,5 @@
         <li>ゲストユーザは、ゲームの感想、ゲームに対する評価の閲覧のみできます。</li>
       </ul>
     </div>
-    <div class = "col-3">
-      <!-- リンクリストの表示 -->
-      <div class = "list-group" style = "max-width: 400px;">
-        <%= link_to 'トップページへ', root_path, class: "list-group-item list-group-item-action" %>
-        <%= link_to 'ゲームタイトル一覧へ', root_path, class: "list-group-item list-group-item-action" %>
-        <%= link_to 'ジャンル一覧へ', user_genres_path, class: "list-group-item list-group-item-action" %>
-        <%= link_to '投稿一覧へ', user_impressions_path, class: "list-group-item list-group-item-action" %>
-      </div>
-    </div>
-
   </div>
 </div>
