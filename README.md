@@ -1,7 +1,7 @@
 # Game Impressions
 
 ## サイト概要
-ゲームの感想を投稿し、他のユーザーと共有するサイトです。
+ゲームプレイの感想の投稿、各ゲームタイトルへの評価(5段階)の投稿ができるサイトです。
 
 ### サイトテーマ
 素晴らしいゲーム体験を共有しよう！
@@ -18,11 +18,11 @@
 * 他ユーザのゲーム評価（感想）が知りたいとき
 * ゲーム購入の際の参考にしたいとき
 
+## 開発環境
+* Ruby  2.5.7
+* Rails 5.2.4.3
+
 ## 設計書
 
 ### 機能一覧
 https://docs.google.com/spreadsheets/d/1zWJCXgLCg3BUwf47PBedyE4_FGtd_E_x1ZQiGLrmtq0/edit?usp=sharing
-
-## 開発環境
-* Ruby  2.5.7
-* Rails 5.2.4.3
