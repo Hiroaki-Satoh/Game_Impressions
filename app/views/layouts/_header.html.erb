@@ -1,0 +1,52 @@
+<%# ヘッダー 部分テンプレート %>
+<header>
+  <nav class = "navbar navbar-expand navbar-dark bg-dark fixed-top justify-content-between">
+    <% if admin_signed_in? %> <%# 管理者でログイン時 %>
+      <%= link_to 'Game Impressions', admin_top_path, class: "navbar-brand" %>
+    <% else %>
+      <%= link_to 'Game Impressions', root_path, class: "navbar-brand" %>
+    <% end %>
+
+    <% if admin_signed_in? %> <%# 管理者でログイン時 %>
+      <span class = "navbar-text">
+        ようこそ、【管理者】<%= current_admin.nickname %>さん
+      </span>
+    <% elsif user_signed_in? %> <%# ユーザログイン時 %>
+      <span class = "navbar-text">
+        ようこそ、<%= current_user.nickname %>さん
+      </span>
+    <% else %> <%# 未ログイン時 %>
+      <span class = "navbar-text">
+        ようこそ、ゲストさん
+      </span>
+    <% end %>
+
+    <ul class = "navbar-nav">
+      <% if admin_signed_in? %> <%# 管理者でログイン時 %>
+        <li class = "nav-item">
+          <%= link_to 'about', homes_about_path, class: "nav-link" %>
+        </li>
+        <li class = "nav-item">
+          <%= link_to 'ログアウト', destroy_admin_session_path, method: :delete, class: "nav-link" %>
+        </li>
+      <% elsif user_signed_in? %> <%# ユーザログイン時 %>
+        <li class = "nav-item">
+          <%= link_to 'about', homes_about_path, class: "nav-link" %>
+        </li>
+        <li class = "nav-item">
+          <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "nav-link" %>
+        </li>
+      <% else %> <%# 未ログイン時 %>
+        <li class = "nav-item">
+          <%= link_to 'about', homes_about_path, class: "nav-link" %>
+        </li>
+        <li class = "nav-item">
+          <%= link_to '新規登録', new_user_registration_path, class: "nav-link" %>
+        </li>
+        <li class = "nav-item">
+          <%= link_to 'ログイン', new_user_session_path, class: "nav-link" %>
+        </li>
+      <% end %>
+    </ul>
+  </nav>
+</header>
