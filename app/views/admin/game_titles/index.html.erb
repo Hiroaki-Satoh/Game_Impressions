@@ -42,8 +42,13 @@
   </div>
 
   <div class = "row">
-    <%= render 'admin/homes/link_list' %>
-    <%# ゲームタイトル登録フォーム %>
-    <%= render 'newform', game_title: @game_title %>
+    <div class = "col-4">
+      <%# リンクリストの表示 %>
+      <%= render 'admin/homes/link_list' %>
+    </div>
+    <div class = "col-8">
+      <%# ゲームタイトル登録フォーム %>
+      <%= render 'newform', game_title: @game_title %>
+    </div>
   </div>
 </div>
