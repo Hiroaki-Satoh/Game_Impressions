@@ -2,7 +2,9 @@
 <div class = "container">
   <div class = "row">
     <%# リンクリストの表示 %>
-    <%= render 'admin/homes/link_list' %>
+    <div class = "col-4">
+      <%= render 'admin/homes/link_list' %>
+    </div>
   	<div class = "col-8">
       <h2>ジャンルの編集</h2>
       <%= form_with(model: @genre, local: true, url:{action: 'update'}) do |f| %>
