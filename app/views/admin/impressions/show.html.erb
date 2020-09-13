@@ -1,11 +1,12 @@
+<%# 投稿(Impression)詳細表示(管理者) %>
 <div class = "container">
   <div class = "row">
     <div class = "col-4">
-      <!-- リンクリストの表示 -->
+      <%# リンクリストの表示 %>
       <%= render 'admin/homes/link_list' %>
     </div>
     <div class = "col-8">
-      <!-- Impression 詳細表示 -->
+      <%# Impression 詳細表示 %>
       <div class = "row">
         <div class = "col-8">
           <h2>Impression detail</h2>
@@ -15,17 +16,16 @@
           <p>ゲームタイトル：<%= @impression.game_title.name %></p>
           <h4>impression</h4>
           <p><%= @impression.body %></p>
-          <%= link_to "削除する", admin_impression_path(@impression), method: :delete,
-          data: {confirm: "本当に削除してもよろしいですか？"}, class: "btn btn-danger" %>
+          <%= link_to "削除する", admin_impression_path(@impression),
+            method: :delete, data: {confirm: "本当に削除してもよろしいですか？"}, class: "btn btn-danger" %>
         </div>
       </div>
-      <!-- Impression 詳細表示 ここまで -->
 
-      <!-- コメント一覧 -->
+      <%# コメント一覧表示 %>
       <div class = "comment_<%= @impression.id %>">
         <%= render 'user/comments/index' %>
       </div>
-      <!-- コメント入力フォーム -->
+      <%# コメント新規作成フォーム %>
       <%= render 'user/comments/form' %>
     </div>
   </div>
