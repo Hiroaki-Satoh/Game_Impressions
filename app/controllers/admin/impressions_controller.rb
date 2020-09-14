@@ -1,18 +1,19 @@
 class Admin::ImpressionsController < ApplicationController
   before_action :authenticate_admin!
 
+  # 投稿一覧ページの表示
   def index
-  	# 降順で1ページにつき10個表示する
   	@impressions = Impression.all.order("id DESC").page(params[:page]).per(10)
   end
 
-   def show
+  # 投稿詳細ページの表示
+  def show
   	@impression = Impression.find(params[:id])
-    # コメント機能
-    @comment = Comment.new
-    @comments = @impression.comments
+    @comment = Comment.new # コメントの新規作成の為
+    @comments = @impression.comments # コメントの一覧表示の為
   end
 
+  # 投稿のの削除
   def destroy
     @impression = Impression.find(params[:id])
   	@impression.destroy
