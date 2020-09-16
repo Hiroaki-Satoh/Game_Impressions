@@ -1,23 +1,23 @@
+<%# 投稿の詳細表示(ユーザ) %>
 <div class = "conteiner">
   <div class = "row">
     <div class = "col-4">
-    <!-- ユーザプロフィールの表示 -->
-	  <%= render 'user/users/profile', user: @user %>
-	  <!-- リンクリストの表示 -->
-	  <%= render 'user/users/link_list' %>
+      <%# ユーザプロフィールの表示 %>
+	    <%= render 'user/users/profile', user: @user %>
+	    <%# リンクリストの表示 %>
+	    <%= render 'user/users/link_list' %>
     </div>
 
-    <!-- Impression 詳細表示 -->
     <div class = "col-8">
       <div class = "row">
         <div class = "col-8">
           <h2>Impression detail</h2>
             <%= attachment_image_tag(@impression, :image, :size => "500x300",
-            format: 'jpeg', class: "img-rounded", fallback: "no_image.jpg", size:"500x300") %>
+              format: 'jpeg', class: "img-rounded", fallback: "no_image.jpg", size:"500x300") %>
           <h3><%= @impression.title %></h3>
           <p>
             ゲームタイトル：<%= link_to @impression.game_title.name,
-            user_game_title_path(@impression.game_title_id) %>
+              user_game_title_path(@impression.game_title_id) %>
           </p>
           <h4>impression</h4>
           <p><%= @impression.body %></p>
@@ -39,13 +39,12 @@
           </div>
         </div>
       </div>
-      <!-- Impression 詳細表示 ここまで -->
 
-      <!-- コメント一覧 -->
+      <%# コメント一覧 %>
       <div class = "comment_<%= @impression.id %>">
         <%= render 'user/comments/index' %>
       </div>
-      <!-- コメント入力フォーム -->
+      <%# コメント投稿フォーム %>
       <%= render 'user/comments/form' %>
     </div>
   </div>
