@@ -1,13 +1,12 @@
 <div class = "container">
   <div class = "row">
     <div class = "col-4">
-      <!-- ユーザプロフィールの表示 -->
+      <%# ユーザプロフィールの表示 %>
       <%= render 'user/users/profile', user: @user %>
-      <!-- リンクリストの表示 -->
+      <%# リンクリストの表示 %>
       <%= render 'user/users/link_list' %>
     </div>
 
-    <!-- ユーザの一覧表示 -->
     <div class = "col-8">
       <h1>ユーザ一覧</h1>
       <div class = "table-responsive">
@@ -24,21 +23,18 @@
   	  	      <tr>
                 <td>
                   <%= attachment_image_tag(user, :icon_image, :size => "40x40",
-                  format: 'jpeg', class: "img-rounded", fallback: "no_image.jpg", size:"40x40") %>
+                    format: 'jpeg', class: "img-rounded", fallback: "no_image.jpg", size:"40x40") %>
                 </td>
-                <!-- ニックネーム クリックでユーザ詳細ページへ -->
   	  	        <td><%= link_to user.nickname, user_user_path(user), class: "btn-link" %></td>
-                <!-- Rank -->
                 <td><%= user.level %></td>
   	  	      </tr>
   	  	    <% end %>
   	  	  </tbody>
-  	     </table>
-  	   </div>
-    </div>
-    <div class = "text-center">
-    <%= paginate(@users) %>
+  	    </table>
+        <div class = "text-center">
+          <%= paginate(@users) %>
+        </div>
+  	  </div>
     </div>
   </div>
-  <!-- ユーザ一覧表示 ここまで -->
 </div>
