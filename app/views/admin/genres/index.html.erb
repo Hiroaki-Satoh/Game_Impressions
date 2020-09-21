@@ -1,6 +1,5 @@
 <%# 登録ジャンル一覧表示画面(管理者) %>
 <div class = "container">
-  <h1>ジャンル一覧</h1>
   <div class = "row">
     <div class = "col-4">
       <%# リンクリストの表示 %>
@@ -10,16 +9,19 @@
       <%# ジャンルの新規登録フォーム %>
       <div class = "col-12">
         <h2>ジャンルの追加</h2>
-        <%= form_with(model: @genre, local: true, url:{action: 'create'}) do |f| %>
-          <div class = "field">
-            <h4>ジャンル名</h4>
-            <%= f.text_field :name %>
-            <%= f.submit "追加", class: "btn btn-info" %>
-          </div>
-        <% end %>
+        <div class = "GenreForm">
+          <%= form_with(model: @genre, local: true, url:{action: 'create'}) do |f| %>
+            <div class = "field">
+              <h4>ジャンル名</h4>
+              <%= f.text_field :name %>
+              <%= f.submit "追加", class: "btn btn-info" %>
+            </div>
+          <% end %>
+        </div>
       </div>
 
       <div class = "col-12">
+        <h2>ジャンル一覧</h2>
         <div class = "table-responsive">
   	  	  <table class = "table thead-light table-striped table-bordered text-nowrap">
   	  	    <thread>
@@ -38,7 +40,7 @@
   	  	          <% elsif genre.is_valid == false %>
   	  	      	    <td>無効</td>
   	  	          <% end %>
-  	  	      	  <td><%= link_to '編集', edit_admin_genre_path(genre), class: "btn btn-success" %></td>
+  	  	      	  <td align = "center"><%= link_to '編集', edit_admin_genre_path(genre), class: "btn btn-success" %></td>
   	  	        </tr>
   	  	      <% end %>
   	  	    </tbody>
