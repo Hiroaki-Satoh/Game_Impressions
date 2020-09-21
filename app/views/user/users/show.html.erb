@@ -1,13 +1,12 @@
+<%# ユーザ情報表示画面(ユーザ) %>
 <div class = "container">
   <div class = "row">
     <div class = "col-4">
-      <!-- ユーザプロフィールの表示 -->
+      <%# ユーザプロフィールの表示 %>
 	    <%= render 'user/users/profile', user: @user %>
-	    <!-- リンクリストの表示 -->
+	    <%# リンクリストの表示 %>
 	    <%= render 'user/users/link_list' %>
     </div>
-
-    <!-- Impressions 一覧の表示 -->
     <div class = "col-8">
       <h2>Impressions</h2>
       <table class = "table thead-light table-striped table-bordered text-nowrap">
@@ -33,6 +32,5 @@
         </tbody>
       </table>
     </div>
-    <!-- Impressions 一覧表示 ここまで -->
   </div>
 </div>

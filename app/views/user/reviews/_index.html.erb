@@ -1,4 +1,4 @@
-<!-- レビュー一覧表示 部分テンプレート -->
+<%# レビュー一覧表示 部分テンプレート %>
 <div class = "row">
   <h3>Rviews（<%= @game_title.reviews.count %>）</h3>
   <table class="table table-bordered">
@@ -7,10 +7,10 @@
         <tr>
           <td colspan = 2>
             <div class = "review_user_icon">
-              <!-- ユーザアイコン -->
+              <%# 投稿したユーザのアイコン表示 %>
               <%= attachment_image_tag(review.user, :icon_image, :size => "40x40",
-              format: 'jpeg', class: "img-rounded", fallback: "no_image.jpg", size:"40x40") %>
-              <!-- ユーザニックネーム -->
+                format: 'jpeg', class: "img-rounded", fallback: "no_image.jpg", size:"40x40") %>
+              <%# 投稿したユーザのニックネームの表示 %>
               <%= link_to review.user.nickname, user_user_path(review.user_id), class: "btn btn-link" %>
               <% if review.user == current_user %>
                 <%= link_to "編集する", edit_user_game_title_reviews_path(review), class: "btn btn-success" %>
@@ -18,7 +18,7 @@
             </div>
           </td>
         </tr>
-        <!-- 評価項目を表示する -->
+        <%# 評価項目を表示する %>
         <tr>
           <td>グラフィック</td><td><%= review.graphic%></td>
         </tr>

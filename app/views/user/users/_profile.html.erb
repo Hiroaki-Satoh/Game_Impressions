@@ -1,4 +1,4 @@
-<!-- ログインユーザ情報の表示（プロフィール） -->
+<%# ユーザ情報（プロフィールの表示(ユーザ) %>
 <% if user_signed_in? %>
   <% if @user == current_user %>
     <h2>Your Profile</h2>
@@ -12,7 +12,7 @@
       	<tr>
       	  <td colspan = "2" align = center>
             <%= attachment_image_tag(user, :icon_image, :size => "100x100",
-  	         format: 'jpeg', class: "img-rounded", fallback: "no_image.jpg", size:"100x100") %>
+  	          format: 'jpeg', class: "img-rounded", fallback: "no_image.jpg", size:"100x100") %>
   	      </td>
   	   </tr>
   	   <tr>

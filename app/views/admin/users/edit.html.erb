@@ -1,7 +1,12 @@
+<%# 登録ユーザ情報編集(管理者) %>
 <div class = "container">
-  <h2>ユーザ情報の編集</h2>
   <div class = "row">
-  	<div class = "col col-xs-12">
+    <div class = "col-4">
+      <%# リンクリストの表示 %>
+      <%= render 'admin/homes/link_list' %>
+    </div>
+  	<div class = "col-8">
+      <h2>ユーザ情報の編集</h2>
       <%= form_with(model: @user, local: true, url:{action: 'update'}) do |f| %>
         <div class = "form-group">
           <%= f.label :ユーザアイコン %><br>
@@ -20,22 +25,15 @@
         </div>
         <div class = "form-group">
           <h4>状態の切り替え</h4>
-          <!-- ラジオボタンで有効・無効を切り替える -->
+          <%# ラジオボタンで有効・無効を切り替える %>
           <%= f.radio_button :is_valid, true %>
           <%= f.label :is_valid, "有効", {value: :true, style: "display: inline-block;"} %>&emsp;
           <%= f.radio_button :is_valid, false %>
           <%= f.label :is_valid, "無効（退会）", {value: :false, style: "display: inline-block;"} %>
-          <!-- --------------------------- -->
+          <%# --------------------------- %>
         </div>
           <%= f.submit "変更を保存する", class: "btn btn-info" %>
       <% end %>
     </div>
-  </div>
-</div>
-
-<div class = "button">
-  <div style = "text-align: center">
-    <%= link_to 'ユーザ一覧に戻る', admin_users_path, class: "btn btn-sm btn-primary" %>&emsp;
-    <%= link_to 'ユーザ詳細に戻る', admin_user_path(@user), class: "btn btn-sm btn-primary" %>
   </div>
 </div>
