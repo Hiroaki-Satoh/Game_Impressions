@@ -134,3 +134,38 @@ GameTitle.create!(
   name:         "Music Star",
   introduction: "目指せトップアイドル"
 )
+
+# 投稿の初期データ
+10.times do |n|
+  Impression.create!(
+    user_id:       "#{n + 1}",
+    game_title_id: "#{n + 1}",
+    image:         open("./app/assets/images/no_image.jpg"),
+    title:         "#{n + 1}番目の投稿です",
+    body:          "私が#{n + 1}番です！"
+  )
+end
+
+# コメント初期データ
+5.times do |n|
+  Comment.create!(
+    user_id:        "#{n + 1}",
+    impression_id:  1,
+    body:           "#{n + 1}番目のコメントです。"
+  )
+end
+
+# レビュー初期データ
+5.times do |n|
+  Review.create!(
+    user_id:       "#{n + 1}",
+    game_title_id: 1,
+    title:         "#{n + 1}番目の評価",
+    body:          "#{n + 1}番目の評価です！",
+    graphic:       "#{n + 1.0}",
+    sound:         "#{n + 1.0}",
+    story:         "#{n + 1.0}",
+    volume:        "#{n + 1.0}",
+    recommended:   "#{n + 1.0}"
+  )
+end
