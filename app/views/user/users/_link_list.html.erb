@@ -11,6 +11,7 @@
   	  <%= link_to 'マイページ', user_user_path(current_user), class: "list-group-item list-group-item-action" %>
     <% end %>
   <% else %> <%# 未ログイン時 %>
+    <%= link_to 'トップページ', root_path, class: "list-group-item list-group-item-action" %>
     <%= link_to 'GameImpressionsとは', homes_about_path, class: "list-group-item list-group-item-action" %>
   	<%= link_to 'ゲームタイトル一覧', user_game_titles_path, class: "list-group-item list-group-item-action" %>
   	<%= link_to 'ジャンル一覧', user_genres_path, class: "list-group-item list-group-item-action" %>
