@@ -7,32 +7,35 @@
     </div>
   	<div class = "col-8">
       <h1>登録ユーザ一覧</h1>
-      <div class = "table-responsive">
-  	  	<table class = "table thead-light table-striped table-bordered text-nowrap">
-  	  	  <thread>
-  	  	  	<tr>
-  	  	  	  <th>ニックネーム</th>
-              <th>Eメールアドレス</th>
-  	  	  	  <th>状態</th>
-  	  	    </tr>
-  	  	  </thread>
-  	  	  <tbody>
-  	  	    <% @users.each do |user| %>
-  	  	      <tr>
-  	  	        <td><%= link_to user.nickname, admin_user_path(user), class: "btn-link" %></td>
-                <td><%= user.email %></td>
-  	  	        <% if user.is_valid == true %>
-  	  	          <td>有効</td>
-  	  	        <% elsif user.is_valid == false %>
-  	  	      	  <td>退会</td>
-  	  	        <% end %>
+      <div class = "row">
+        <div class = "table-responsive">
+  	  	  <table class = "table thead-light table-striped table-bordered text-nowrap">
+  	  	    <thread>
+  	  	  	  <tr>
+  	  	  	    <th>ニックネーム</th>
+                <th>Eメールアドレス</th>
+  	  	  	    <th>状態</th>
   	  	      </tr>
-  	  	    <% end %>
-  	  	  </tbody>
-  	    </table>
-  	  </div>
-      <div class = "text-center">
-        <%= paginate(@users) %>
+  	  	    </thread>
+  	  	    <tbody>
+  	  	      <% @users.each do |user| %>
+  	  	        <tr>
+  	  	          <td><%= link_to user.nickname, admin_user_path(user), class: "btn-link" %></td>
+                  <td><%= user.email %></td>
+  	  	          <% if user.is_valid == true %>
+  	  	            <td>有効</td>
+  	  	          <% elsif user.is_valid == false %>
+  	  	      	    <td>退会</td>
+  	  	          <% end %>
+  	  	        </tr>
+  	  	      <% end %>
+  	  	    </tbody>
+  	      </table>
+  	    </div>
       </div>
+      <ul class = "pagination justify-content-center">
+        <%= paginate(@users) %>
+      </ul>
     </div>
   </div>
+</div>
