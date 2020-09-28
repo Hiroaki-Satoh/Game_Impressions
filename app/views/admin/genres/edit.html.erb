@@ -1,17 +1,18 @@
 <%# ゲームジャンルの編集画面(管理者) %>
 <div class = "container">
   <div class = "row">
-    <%# リンクリストの表示 %>
     <div class = "col-4">
+      <%# リンクリストの表示 %>
       <%= render 'admin/homes/link_list' %>
     </div>
   	<div class = "col-8">
       <h2>ジャンルの編集</h2>
       <%= form_with(model: @genre, local: true, url:{action: 'update'}) do |f| %>
         <div class = "field">
-          <h4>ジャンル名</h4>
-          <%= f.text_field :name %>
+          <%= f.label :ジャンル名 %><br>
+          <%= f.text_field :name, placeholder: "ジャンル名を入力してください" %>
         </div>
+
         <div class = "field">
           <h4>状態の切り替え</h4>
           <%# ラジオボタンで有効・無効を切り替える %>
