@@ -1,9 +1,9 @@
 <%# レビュー一覧表示 部分テンプレート %>
 <div class = "row">
   <h3>Rviews（<%= @game_title.reviews.count %>）</h3>
-  <table class="table table-bordered">
+  <table class = "table table-bordered">
     <% @game_title.reviews.each do |review| %>
-      <div class="col-6">
+      <div class = "col-6">
         <tr>
           <td colspan = 2>
             <div class = "review_user_icon">
