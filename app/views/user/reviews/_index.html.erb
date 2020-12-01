@@ -7,11 +7,13 @@
         <tr>
           <td colspan = 2>
             <div class = "review_user_icon">
-              <%# 投稿したユーザのアイコン表示 %>
               <%= attachment_image_tag(review.user, :icon_image, :size => "40x40",
                 format: 'jpeg', class: "img-rounded", fallback: "no_image.jpg", size:"40x40") %>
-              <%# 投稿したユーザのニックネームの表示 %>
+            </div>
+            <div class = "review_user_nickname">
               <%= link_to review.user.nickname, user_user_path(review.user_id), class: "btn btn-link" %>
+            </div>
+            <div class = "fixbtn">
               <% if review.user == current_user %>
                 <%= link_to "編集する", edit_user_game_title_reviews_path(review), class: "btn btn-success" %>
               <% end %>
@@ -20,19 +22,19 @@
         </tr>
         <%# 評価項目を表示する %>
         <tr>
-          <td>グラフィック</td><td><%= review.graphic%></td>
+          <td>グラフィック</td><td align = "center"><%= review.graphic%></td>
         </tr>
         <tr>
-          <td>サウンド</td><td><%= review.sound%></td>
+          <td>サウンド</td><td align = "center"><%= review.sound%></td>
         </tr>
         <tr>
-          <td>ストーリー</td><td><%= review.story%></td>
+          <td>ストーリー</td><td align = "center"><%= review.story%></td>
         </tr>
         <tr>
-          <td>ボリューム</td><td><%= review.volume%></td>
+          <td>ボリューム</td><td align = "center"><%= review.volume%></td>
         </tr>
         <tr>
-          <td>おすすめ度</td><td><%= review.recommended%></td>
+          <td>おすすめ度</td><td align = "center"><%= review.recommended%></td>
         </tr>
         <tr>
           <td colspan = 2>
