@@ -5,7 +5,7 @@
     <% @game_title.reviews.each do |review| %>
       <div class = "col-6">
         <tr>
-          <td colspan = "2">
+          <td colspan = 2>
             <div class = "review_user_icon">
               <%= attachment_image_tag(review.user, :icon_image, :size => "40x40",
                 format: 'jpeg', class: "img-rounded", fallback: "no_image.jpg", size:"40x40") %>
