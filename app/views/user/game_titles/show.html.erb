@@ -22,23 +22,29 @@
               <td align = "right">グラフィック：</td>
               <td><%= @game_title.reviews.average(:graphic) %></td>
             </tr>
+
             <tr>
               <td align = "right">サウンド：</td>
               <td><%= @game_title.reviews.average(:sound) %></td>
             </tr>
+
             <tr>
               <td align = "right">ストーリー：</td>
               <td><%= @game_title.reviews.average(:story)%></td>
             </tr>
+
             <tr>
               <td align = "right">ボリューム：</td>
               <td><%= @game_title.reviews.average(:volume)%></td>
+            </tr>
+
             <tr>
               <td align = "right">おすすめ度：</td>
               <td><%= @game_title.reviews.average(:recommended)%></td>
             </tr>
           </table>
         </div>
+
   	    <div class = "col-9">
   	      <p>ゲームタイトル名<br><%= @game_title.name %></p>
   	      <p>ジャンル<br><%= @game_title.genre.name %></p>
