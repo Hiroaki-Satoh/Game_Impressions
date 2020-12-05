@@ -11,24 +11,29 @@
     <div class = "col-8">
       <h1>投稿の編集</h1>
   	  <%= form_with(model: @impression, url:{action: 'update'}) do |f| %>
+
   	    <div class = "form-group">
           <%= attachment_image_tag(@impression, :image, :size => "100x100",
           format: 'jpeg', class: "img-rounded", fallback: "no_image.jpg", size:"100x100") %><br>
   	  	  <%= f.label :画像の変更 %><br>
   	  	  <%= f.attachment_field :image, class: "form-controll-file" %>
   	    </div>
+
   	    <div class = "form-group">
   	  	  <%= f.label :タイトル %><br>
   	  	  <%= f.text_field :title, placeholder: "タイトル（25文字以下）", class: "form-controll w-50" %>
   	    </div>
+
   	    <div class = "form-group">
   	  	  <%= f.label :ゲームタイトル %><br>
   	      <%= f.collection_select :game_title_id, GameTitle.all, :id, :name, include_blank: "--- 選択して下さい ---" %>
   	    </div>
+
   	    <div class = "form-group">
   	  	  <%= f.label :本文 %><br>
   	  	  <%= f.text_area :body, size: "x10", placeholder: "本文（200文字以下）", class: "form-controll w-50" %>
   	    </div>
+
   	    <%= f.submit "変更を保存する", class: "btn btn-info" %>
   	  <% end %>
   	</div>
