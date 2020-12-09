@@ -14,27 +14,34 @@
             <%= attachment_image_tag(user, :icon_image, :size => "100x100",
   	          format: 'jpeg', class: "img-rounded", fallback: "no_image.jpg", size:"100x100") %>
   	      </td>
-  	   </tr>
-  	   <tr>
+  	    </tr>
+
+  	    <tr>
   	      <td align = center>ニックネーム</td>
   	      <td><%= user.nickname %></td>
   	    </tr>
+
   	    <tr>
   	      <td align = center>Rank</td>
   	      <td>Lv.<%= user.level %></td>
   	    </tr>
+
   	    <tr>
   	      <td colspan = "2" align = center>introduction</td>
   	    </tr>
+
   	    <tr>
   	      <td colspan = "2" align = center><%= user.introduction %></td>
   	    </tr>
+
         <% if user == current_user %>
           <tr>
             <td colspan = "2" align = center>
               <%= link_to 'プロフィール編集', edit_user_user_path(current_user), class: "btn btn-primary" %>
             </td>
           </tr>
+
+          <tr>
             <td colspan = "2" align = center>
               <%= link_to '新規投稿の作成', new_user_impression_path, class: "btn btn-info" %>
             </td>
