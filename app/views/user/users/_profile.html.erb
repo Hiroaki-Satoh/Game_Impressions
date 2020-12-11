@@ -7,12 +7,12 @@
   <% end %>
 
   <div class = "profile">
-    <table class="table table-bordered" style = "max-width: 400px; margin: 10px;">
+    <table class = "table table-bordered" style = "max-width: 400px; margin: 10px;">
       <tbody>
       	<tr>
       	  <td colspan = "2" align = center>
-            <%= attachment_image_tag(user, :icon_image, :size => "100x100",
-  	          format: 'jpeg', class: "img-rounded", fallback: "no_image.jpg", size:"100x100") %>
+            <%= attachment_image_tag(user, :icon_image, :size => "100x100", format: 'jpeg',
+            class: "img-rounded", fallback: "no_image.jpg", size:"100x100") %>
   	      </td>
   	    </tr>
 
