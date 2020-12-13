@@ -22,8 +22,8 @@
   	  	    <% @users.each do |user| %>
   	  	      <tr>
                 <td>
-                  <%= attachment_image_tag(user, :icon_image, :size => "40x40",
-                    format: 'jpeg', class: "img-rounded", fallback: "no_image.jpg", size:"40x40") %>
+                  <%= attachment_image_tag(user, :icon_image, :size => "40x40", format: 'jpeg',
+                  class: "img-rounded", fallback: "no_image.jpg", size:"40x40") %>
                 </td>
   	  	        <td><%= link_to user.nickname, user_user_path(user), class: "btn-link" %></td>
                 <td><%= user.level %></td>
