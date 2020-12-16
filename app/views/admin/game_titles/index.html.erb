@@ -17,8 +17,8 @@
   	  	    <% @game_titles.each do |game_title| %>
   	  	      <tr>
   	  	      	<td align = "center">
-                  <%= attachment_image_tag(game_title, :game_image, :size => "40x40",
-                    format: 'jpeg', class: "img-rounded", fallback: "no_image.jpg",size:"40x40") %>
+                  <%= attachment_image_tag(game_title, :game_image, :size => "40x40", format: 'jpeg',
+                  class: "img-rounded", fallback: "no_image.jpg",size:"40x40") %>
                 </td>
   	  	        <td><%= game_title.name %></td>
   	  	        <% if game_title.genre.is_valid == true %>
