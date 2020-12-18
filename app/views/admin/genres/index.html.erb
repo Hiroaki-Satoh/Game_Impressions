@@ -40,15 +40,19 @@
   	  	          <% elsif genre.is_valid == false %>
   	  	      	    <td>無効</td>
   	  	          <% end %>
-  	  	      	  <td align = "center"><%= link_to '編集', edit_admin_genre_path(genre), class: "btn btn-success" %></td>
+  	  	      	  <td align = "center">
+                    <%= link_to '編集', edit_admin_genre_path(genre), class: "btn btn-success" %>
+                  </td>
   	  	        </tr>
   	  	      <% end %>
   	  	    </tbody>
   	      </table>
         </div>
+
         <div class = "text-center">
           <%= paginate(@genres) %>
         </div>
   	  </div>
     </div>
   </div>
+</div>
