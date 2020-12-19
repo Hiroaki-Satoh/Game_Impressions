@@ -23,8 +23,8 @@
                 <tr>
                   <td align = "center">
 		                <%= link_to(admin_impression_path(impression)) do %>
-			                <%= attachment_image_tag(impression, :image, :size => "50x50",
-                        format: 'jpeg', class: "img-rounded", fallback: "no_image.jpg", size:"50x50") %>
+			                <%= attachment_image_tag(impression, :image, :size => "50x50", format: 'jpeg',
+                      class: "img-rounded", fallback: "no_image.jpg", size:"50x50") %>
 		                <% end %>
                   </td>
                   <td><h3><%= link_to impression.title, admin_impression_path(impression) %></h3></td>
@@ -35,6 +35,7 @@
           </table>
         </div>
       </div>
+
       <ul class = "pagination justify-content-center">
         <%= paginate(@impressions) %>
       </ul>
